@@ -49,29 +49,6 @@ public class BookingModel {
 
         try
         {
-            statement = con.createStatement();
-
-
-            /*************************** OLD code - does not work as expected
-            statement.executeQuery("SELECT *, b.*, bD.*, ac.name, usr.firstName, usr.lastName FROM bookings b " +
-                                   "INNER JOIN activities ac ON b.ID = ac.id " +
-                                   "JOIN users usr ON usr.ID " +
-                                   "INNER JOIN bookingsdate bD ON bD.bookingDate " +
-                                   "JOIN bookinghours"
-            );
-            */
-
-
-        /*
-           // TODO: Remove duplicates in result - look in the GUI when clicking on bookings
-            statement.executeQuery("SELECT *, b.*, bD.*, ac.name, usr.firstName, usr.lastName FROM bookings b " +
-                    "INNER JOIN activities ac ON b.ID = ac.id " +
-                    "JOIN users usr ON usr.ID " +
-                    "INNER JOIN bookingsdate bD ON bD.bookingDate " +
-                    "JOIN bookinghours ORDER BY bookingDate"
-            );
-
-            */
 
             statement = con.createStatement();
             statement.executeQuery("SELECT b.*, ac.name, usr.firstName, usr.lastName FROM bookings b " +
