@@ -20,7 +20,11 @@ import java.util.*;
 import java.util.Date;
 
 /**
+<<<<<<< HEAD
+ * Gruppe aflevering: Max, Thomas & Memet.
+=======
  * Created by x on 13/05/2016.
+>>>>>>> 76f3a03ad6bb4be39e9d3a51c963c302d4a75e82
  */
 public class LoginView extends Application
 {
@@ -36,7 +40,7 @@ public class LoginView extends Application
 
     Button loginBtn;
 
-    Hyperlink accountHLink;
+   // Hyperlink accountHLink;
 
     ImageView imv;
     Image image2;
@@ -54,7 +58,6 @@ public class LoginView extends Application
         primaryStage.show();
     }
 
-
     public BorderPane getBorderPane()
     {
         borderPane = new BorderPane();
@@ -68,7 +71,7 @@ public class LoginView extends Application
 
         //Add image
         imv = new ImageView();
-        image2 = new Image(LoginView.class.getResourceAsStream("../img/Washa.png"));
+        image2 = new Image(LoginView.class.getResourceAsStream("../img/Washa3.png"));
         imv.setImage(image2);
         imv.setFitWidth(220);
         imv.setFitHeight(70);
@@ -104,14 +107,16 @@ public class LoginView extends Application
             }
         });
 
+        // test
         loginBtn = new Button("Login");
         gridPane.add(loginBtn, 1, 3);
         loginBtn.setPrefWidth(100);
 
-        accountHLink = new Hyperlink("Don't have an account?");
-        CreateUserView ucv = new CreateUserView();
+        //accountHLink = new Hyperlink("Don't have an account?");
+        //CreateUserView ucv = new CreateUserView();
         //accountHLink.setOnAction(e -> );
-        gridPane.add(accountHLink, 0, 7, 2, 1);
+       // gridPane.add(accountHLink, 0, 7, 2, 1);
+
 
         //Just testing...
         loginBtn.setOnAction(e ->
@@ -122,10 +127,12 @@ public class LoginView extends Application
             }
         });
 
+        /*
         accountHLink.setOnAction(e -> {
             System.out.println("Opening create user... ");
             SceneSwitchHelper.setScene(ucv.userCreateView(null), 420, 570, "Create User");
         });
+        */
 
         //gridPane.setGridLinesVisible(true);
 

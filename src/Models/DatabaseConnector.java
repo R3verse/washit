@@ -28,7 +28,7 @@ public class DatabaseConnector
         {
             if(instance == null) {
 
-                instance = new DatabaseConnector("jdbc:mysql://192.168.1.143/adventure_xp?useSSL=true", "root", "lol123");
+                instance = new DatabaseConnector("jdbc:mysql://93.188.167.220:3306/adventure_xp?useSSL=true", "adventure", "lol123");
 
             }
             return instance;
