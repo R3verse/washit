@@ -220,6 +220,7 @@ public class CreateUserView
             customerRadioBtn.setVisible(true);
             adminRadioBtn.setVisible(true);
 
+
             if (adminRadioBtn.isSelected()) {
                 valueReturn = 2;
             }
