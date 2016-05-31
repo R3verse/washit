@@ -15,7 +15,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
- * Created by peterzohdy on 23/02/2016.
+ * Created by x on 13/05/2016.
  */
 public class CreateUserView
 {

@@ -7,7 +7,7 @@ import View.Template;
 import javafx.scene.control.Alert;
 
 /**
- * Created by B on 24-02-2016.
+ * Created by x on 14-05-2016.
  */
 public class UserLoginController
 {

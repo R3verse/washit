@@ -18,7 +18,7 @@ import javafx.stage.Stage;
 import java.util.Date;
 
 /**
- * Created by AlexanderFalk on 23/02/2016.
+ * Created by x on 12/05/2016.
  */
 public class Template extends Application
 {
@@ -49,12 +49,14 @@ public class Template extends Application
 
         //The image to the first VBox
         ImageView imv = new ImageView();
-        Image image2 = new Image(LoginView.class.getResourceAsStream("../img/adventure.png"));
+        Image image2 = new Image(LoginView.class.getResourceAsStream("../img/Washa.png"));
+        imv.setFitHeight(70);
+        imv.setFitWidth(220);
 
         imv.setImage(image2);
 
         //VBox color
-        leftRootVBox.setStyle("-fx-background-color: linear-gradient(white 20%, #dda200 100%)");
+        leftRootVBox.setStyle("-fx-background-color: linear-gradient(white 20%, darkcyan 100%)");
 
         //VBox Contraints
         leftRootVBox.setPrefWidth(150);

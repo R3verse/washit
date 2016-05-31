@@ -20,7 +20,7 @@ import java.util.*;
 import java.util.Date;
 
 /**
- * Created by peterzohdy on 23/02/2016.
+ * Created by x on 13/05/2016.
  */
 public class LoginView extends Application
 {
@@ -68,8 +68,10 @@ public class LoginView extends Application
 
         //Add image
         imv = new ImageView();
-        image2 = new Image(LoginView.class.getResourceAsStream("../img/adventure.png"));
+        image2 = new Image(LoginView.class.getResourceAsStream("../img/Washa.png"));
         imv.setImage(image2);
+        imv.setFitWidth(220);
+        imv.setFitHeight(70);
         pictureRegion = new HBox();
         pictureRegion.getChildren().add(imv);
         gridPane.add(pictureRegion, 1,0);

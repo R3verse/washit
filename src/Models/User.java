@@ -3,7 +3,7 @@ package Models;
 import java.util.Date;
 
 /**
- * Created by lordni on 2/22/16.
+ * Created by x on 12/5/16.
  */
 public class User {
 

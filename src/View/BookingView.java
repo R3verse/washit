@@ -14,7 +14,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 
 /**
- * Created by peterzohdy on 24/02/2016.
+ * Created by x on 14/05/2016.
  */
 
 public class BookingView {

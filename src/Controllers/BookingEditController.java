@@ -4,7 +4,7 @@ import Models.Booking;
 import Models.BookingModel;
 
 /**
- * Created by AlexanderFalk on 29/02/2016.
+ * Created by x on 19/05/2016.
  */
 public class BookingEditController
 {

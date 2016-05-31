@@ -9,7 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * Created by maxjensendk on 29/02/2016.
+ * Created by maxjensendk on 19/05/2016.
  */
 public class ValidationModel {
 
