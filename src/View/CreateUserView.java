@@ -54,12 +54,14 @@ public class CreateUserView
 
         borderPane.setStyle("-fx-background-color: white");
 
-        borderPane.setStyle("-fx-background-color: linear-gradient(white 80%, #DD5100 100%)");
+        borderPane.setStyle("-fx-background-color: linear-gradient(white 25%, darkcyan 100%)");
 
         //Add image
         ImageView imv = new ImageView();
-        Image image2 = new Image(LoginView.class.getResourceAsStream("../img/adventure.png"));
+        Image image2 = new Image(LoginView.class.getResourceAsStream("../img/Washa3.png"));
         imv.setImage(image2);
+        imv.setFitWidth(220);
+        imv.setFitHeight(70);
         HBox pictureRegion = new HBox();
         pictureRegion.setPadding(new Insets(0, 0, 20, 0));
         pictureRegion.getChildren().add(imv);
