@@ -179,7 +179,11 @@ public class EditBookingView
             {
                 java.util.Date utilDate = new SimpleDateFormat("yyyy-MM-dd").parse(datePicker.getValue().toString());
 
+
                 date = new Date(utilDate.getTime());
+
+                date = new java.sql.Date(utilDate.getTime());
+
 
                 booking.setUserID(userCBox.getValue().getID());
                 booking.setActivityID(activitiesCBox.getValue().getId());

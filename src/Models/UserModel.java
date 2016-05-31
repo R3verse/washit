@@ -215,7 +215,11 @@ public class UserModel {
             try{
                 System.out.println(user.getBirthday().toString());
                 java.util.Date utilDate = new SimpleDateFormat("yyyy-MM-dd").parse(user.getBirthday().toString());
+
                 date = new Date(utilDate.getTime());
+
+                date = new java.sql.Date(utilDate.getTime());
+
 
             }catch(Exception e){
                 e.printStackTrace();

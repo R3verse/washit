@@ -158,7 +158,11 @@ public class CreateBookingView
 
                 java.util.Date utilDate = new SimpleDateFormat("yyyy-MM-dd").parse(datePicker.getValue().toString());
 
+
                 date = new Date(utilDate.getTime());
+
+                date = new java.sql.Date(utilDate.getTime());
+
                 convertMiliToHours();
                 int participant = Integer.parseInt(numUsersCbox.getValue().split(" ")[0]);
                 Booking book = new Booking(activities.getId(),selectedUser.getID(),participant,date,startTimeCBox.getValue(),endTimeCBox.getValue());

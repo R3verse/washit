@@ -132,7 +132,11 @@ public class EditUserView{
         try{
             System.out.println(user.getBirthday().toString());
             java.util.Date utilDate = new SimpleDateFormat("yyyy-MM-dd").parse(user.getBirthday().toString());
+
             date = new Date(utilDate.getTime());
+
+            date = new java.sql.Date(utilDate.getTime());
+
             birthdayPicker.setValue(date.toLocalDate());
         }catch(Exception e){
             e.printStackTrace();
@@ -214,7 +218,10 @@ public class EditUserView{
             try{
                 System.out.println(user.getBirthday().toString());
                 java.util.Date utilDate = new SimpleDateFormat("yyyy-MM-dd").parse(birthdayPicker.getValue().toString());
+
                 date2 = new Date(utilDate.getTime());
+
+                date2 = new java.sql.Date(utilDate.getTime());
 
             user.setBirthday(date2);
 
