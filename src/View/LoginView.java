@@ -72,7 +72,7 @@ public class LoginView extends Application
 
         //Add image
         imv = new ImageView();
-        image2 = new Image(LoginView.class.getResourceAsStream("../img/Washa.png"));
+        image2 = new Image(LoginView.class.getResourceAsStream("../img/Washa3.png"));
         imv.setImage(image2);
         imv.setFitWidth(220);
         imv.setFitHeight(70);
