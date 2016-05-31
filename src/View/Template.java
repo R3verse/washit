@@ -49,21 +49,21 @@ public class Template extends Application
 
         //The image to the first VBox
         ImageView imv = new ImageView();
-        Image image2 = new Image(LoginView.class.getResourceAsStream("../img/Washa.png"));
+        Image image2 = new Image(LoginView.class.getResourceAsStream("../img/Washa3.png"));
         imv.setFitHeight(70);
-        imv.setFitWidth(220);
+        imv.setFitWidth(210);
 
         imv.setImage(image2);
 
         //VBox color
-        leftRootVBox.setStyle("-fx-background-color: linear-gradient(white 20%, darkcyan 100%)");
+        leftRootVBox.setStyle("-fx-background-color: linear-gradient(white 25%, darkcyan 100%)");
 
         //VBox Contraints
         leftRootVBox.setPrefWidth(150);
 
         Label loggedInAsLabel = new Label();
 
-        showWelcomeMessage(loggedInAsLabel); // showing if Employee/Admin/User as label
+//        showWelcomeMessage(loggedInAsLabel); // showing if Employee/Admin/User as label
 
         //Buttons & coloring & Size
         Button btnActivity = new Button("Activities");
@@ -133,23 +133,23 @@ public class Template extends Application
 
         return root;
     }
-
-    private void showWelcomeMessage(Label loggedInAsLabel) {
-        if(SessionModel.getInstance().getLoggedInUser().getRole() == UserRoleEnum.ADMIN)
-        {
-            loggedInAsLabel.setText("Welcome Administrator");
-
-        }
-        else if(SessionModel.getInstance().getLoggedInUser().getRole() == UserRoleEnum.EMPLOYEE)
-        {
-            loggedInAsLabel.setText("Welcome "+SessionModel.getInstance().getLoggedInUser().getRole());
-
-        }
-        else if(SessionModel.getInstance().getLoggedInUser().getRole() == UserRoleEnum.USER)
-        {
-            loggedInAsLabel.setText("Welcome "+SessionModel.getInstance().getLoggedInUser().getRole());
-        }else{
-            // Not logged in as a valid user/customer/admin
-        }
-    }
+//
+//    private void showWelcomeMessage(Label loggedInAsLabel) {
+//        if(SessionModel.getInstance().getLoggedInUser().getRole() == UserRoleEnum.ADMIN)
+//        {
+//            loggedInAsLabel.setText("Welcome Administrator");
+//
+//        }
+//        else if(SessionModel.getInstance().getLoggedInUser().getRole() == UserRoleEnum.EMPLOYEE)
+//        {
+//            loggedInAsLabel.setText("Welcome "+SessionModel.getInstance().getLoggedInUser().getRole());
+//
+//        }
+//        else if(SessionModel.getInstance().getLoggedInUser().getRole() == UserRoleEnum.USER)
+//        {
+//            loggedInAsLabel.setText("Welcome "+SessionModel.getInstance().getLoggedInUser().getRole());
+//        }else{
+//            // Not logged in as a valid user/customer/admin
+//        }
+//    }
 }
