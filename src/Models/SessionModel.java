@@ -1,7 +1,7 @@
 package Models;
 
 /**
- * Created by B on 24-02-2016.
+ * Created by B on 14-05-2016.
  */
 public class SessionModel
 {

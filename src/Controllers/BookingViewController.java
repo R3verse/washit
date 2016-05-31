@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * Created by lordni on 2/26/16.
+ * Created by x on 12/5/16.
  */
 public class BookingViewController {
 

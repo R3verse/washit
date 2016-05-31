@@ -6,7 +6,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 /**
- * Created by Nikolaj on 25-02-2016.
+ * Created by x on 15-5-2016.
  */
 public class ActivityCreateController
 {

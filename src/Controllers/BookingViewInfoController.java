@@ -5,7 +5,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.text.Text;
 
 /**
- * Created by B on 02-03-2016.
+ * Created by B on 12-5-2016.
  */
 public class BookingViewInfoController
 {

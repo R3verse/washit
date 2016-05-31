@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 import java.sql.Time;
 
 /**
- * Created by AlexanderFalk on 25/02/2016.
+ * Created by x on 15/05/2016.
  */
 public class EditActivityView
 {

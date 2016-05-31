@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Nikolaj on 29-02-2016.
+ * Created by x on 19-05-2016.
  */
 public class CreateBookingView
 {

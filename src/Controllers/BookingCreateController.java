@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by B on 25-02-2016.
+ * Created by x on 15-05-2016.
  */
 public class BookingCreateController
 {

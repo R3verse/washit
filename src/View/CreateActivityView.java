@@ -11,7 +11,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
- * Created by Nikolaj & Alexander on 25-02-2016.
+ * Created by x on 15-05-2016.
  */
 public class CreateActivityView
 {

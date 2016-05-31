@@ -23,7 +23,7 @@ import java.time.ZoneId;
 import java.time.ZonedDateTime;
 
 /**
- * Created by Zonde on 01-03-2016.
+ * Created by x on 11-05-2016.
  */
 public class EditUserView{
     private static EditUserView eUV;
