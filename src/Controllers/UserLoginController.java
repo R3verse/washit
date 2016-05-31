@@ -7,7 +7,7 @@ import View.Template;
 import javafx.scene.control.Alert;
 
 /**
- * Created by x on 14-05-2016.
+ * Gruppeaflevering: Max, Thomas & Memet
  */
 public class UserLoginController
 {

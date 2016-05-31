@@ -16,7 +16,7 @@ import javafx.stage.Stage;
 import java.util.Date;
 
 /**
- * Created by x on 12/05/2016.
+ * Gruppeaflevering: Max, Memet & Thomas
  */
 public class Template extends Application
 {

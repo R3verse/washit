@@ -112,13 +112,6 @@ public class LoginView extends Application
         gridPane.add(loginBtn, 1, 3);
         loginBtn.setPrefWidth(100);
 
-        //accountHLink = new Hyperlink("Don't have an account?");
-        //CreateUserView ucv = new CreateUserView();
-        //accountHLink.setOnAction(e -> );
-       // gridPane.add(accountHLink, 0, 7, 2, 1);
-
-
-        //Just testing...
         loginBtn.setOnAction(e ->
         {
             if(new UserLoginController().doLogin(emailField.getText(),passwordField.getText()));
@@ -126,15 +119,6 @@ public class LoginView extends Application
                 //primaryStage.setScene();
             }
         });
-
-        /*
-        accountHLink.setOnAction(e -> {
-            System.out.println("Opening create user... ");
-            SceneSwitchHelper.setScene(ucv.userCreateView(null), 420, 570, "Create User");
-        });
-        */
-
-        //gridPane.setGridLinesVisible(true);
 
         return borderPane;
     }
