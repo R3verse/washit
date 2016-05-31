@@ -105,20 +105,20 @@ public class CreateUserView
         gridPane.add(phoneNumberField, 1, 5);
         phoneNumberField.setPromptText("12345678");
 
-        Label birthdayLbl = new Label("Birthday:");
-        gridPane.add(birthdayLbl, 0, 6);
+       // Label birthdayLbl = new Label("Birthday:");
+       // gridPane.add(birthdayLbl, 0, 6);
 
-        birthdayPicker = new DatePicker();
-        gridPane.add(birthdayPicker, 1, 6);
+      //  birthdayPicker = new DatePicker();
+      //  gridPane.add(birthdayPicker, 1, 6);
 
         ToggleGroup group = new ToggleGroup();
 
-        employeeRadioBtn = new RadioButton("Employee");
+        employeeRadioBtn = new RadioButton("Driver");
         employeeRadioBtn.setToggleGroup(group);
 
         gridPane.add(employeeRadioBtn, 1, 8);
 
-        customerRadioBtn = new RadioButton("Costumer");
+        customerRadioBtn = new RadioButton("Customer");
         customerRadioBtn.setToggleGroup(group);
 
         gridPane.add(customerRadioBtn, 1, 9);
@@ -133,7 +133,7 @@ public class CreateUserView
         customerRadioBtn.setVisible(true);
         adminRadioBtn.setVisible(true);
         }
-        else if(!session.isGuest() && session.getLoggedInUser().getRole() == UserRoleEnum.EMPLOYEE)
+        else if(!session.isGuest() && session.getLoggedInUser().getRole() == UserRoleEnum.Driver)
         {
             employeeRadioBtn.setVisible(true);
             customerRadioBtn.setVisible(true);
@@ -141,8 +141,8 @@ public class CreateUserView
         else{
 
             customerRadioBtn.setVisible(true);
-            employeeRadioBtn.setVisible(false); // Never let anonymous users be admin from begnining!
-            adminRadioBtn.setVisible(false);  // Never let anonymous users be admin from begnining!
+            employeeRadioBtn.setVisible(true); // Never let anonymous users be admin from begnining!
+            adminRadioBtn.setVisible(true);  // Never let anonymous users be admin from begnining!
         }
 
 
@@ -226,7 +226,7 @@ public class CreateUserView
             }
 
         }
-        else if(!session.isGuest() && session.getLoggedInUser().getRole() == UserRoleEnum.EMPLOYEE)
+        else if(!session.isGuest() && session.getLoggedInUser().getRole() == UserRoleEnum.Driver)
         {
             employeeRadioBtn.setVisible(true);
             customerRadioBtn.setVisible(true);

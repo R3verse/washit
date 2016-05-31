@@ -1,6 +1,5 @@
 package View;
 
-import Controllers.UserLoginController;
 import Models.*;
 import javafx.application.Application;
 import javafx.geometry.Pos;
@@ -119,7 +118,7 @@ public class Template extends Application
         {
             leftRootVBoxForButtons.getChildren().addAll(loggedInAsLabel, createUserbtn, btnBooking, btnUser, btnLogout);
         }
-        if (SessionModel.getInstance().getLoggedInUser().getRole() == UserRoleEnum.EMPLOYEE)
+        if (SessionModel.getInstance().getLoggedInUser().getRole() == UserRoleEnum.Driver)
         {
             leftRootVBoxForButtons.getChildren().addAll(loggedInAsLabel, createUserbtn, btnBooking, btnLogout);
         }
@@ -142,7 +141,7 @@ public class Template extends Application
 //            loggedInAsLabel.setText("Welcome Administrator");
 //
 //        }
-//        else if(SessionModel.getInstance().getLoggedInUser().getRole() == UserRoleEnum.EMPLOYEE)
+//        else if(SessionModel.getInstance().getLoggedInUser().getRole() == UserRoleEnum.Driver)
 //        {
 //            loggedInAsLabel.setText("Welcome "+SessionModel.getInstance().getLoggedInUser().getRole());
 //

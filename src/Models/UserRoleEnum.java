@@ -2,7 +2,7 @@ package Models;
 
 public enum UserRoleEnum {
     USER (0),
-    EMPLOYEE (1),
+    Driver(1),
     ADMIN (2);
 
     int role;

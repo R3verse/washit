@@ -45,7 +45,7 @@ public class UserModel {
                 userRoleEnum = UserRoleEnum.USER;
                 break;
             case 1:
-                userRoleEnum = UserRoleEnum.EMPLOYEE;
+                userRoleEnum = UserRoleEnum.Driver;
                 break;
             default:
                 userRoleEnum = UserRoleEnum.ADMIN;

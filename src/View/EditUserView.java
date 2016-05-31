@@ -6,7 +6,6 @@ import Models.SessionModel;
 import Models.User;
 import Models.UserRoleEnum;
 import javafx.geometry.Insets;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -18,9 +17,6 @@ import javafx.stage.Stage;
 
 import java.sql.Date;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
 
 /**
  * Created by x on 11-05-2016.
@@ -163,7 +159,7 @@ public class EditUserView{
         {
             group.selectToggle(customerRadioBtn);
         }
-        else if(user.getRole().toString().equalsIgnoreCase("EMPLOYEE"))
+        else if(user.getRole().toString().equalsIgnoreCase("Driver"))
         {
         group.selectToggle(employeeRadioBtn);
         }
@@ -175,7 +171,7 @@ public class EditUserView{
         gridPane.add(adminRadioBtn, 1, 10);
 
 
-        if(!session.isGuest() && SessionModel.getInstance().getLoggedInUser().getRole() == UserRoleEnum.EMPLOYEE)
+        if(!session.isGuest() && SessionModel.getInstance().getLoggedInUser().getRole() == UserRoleEnum.Driver)
         {
                 customerRadioBtn.setVisible(true);
                 employeeRadioBtn.setVisible(true); // Never let anonymous users be admin from begnining!
@@ -203,7 +199,7 @@ public class EditUserView{
 
             UserRoleEnum uRE = null;
             if(employeeRadioBtn.isSelected()){
-                uRE = UserRoleEnum.EMPLOYEE;
+                uRE = UserRoleEnum.Driver;
             }else if(customerRadioBtn.isSelected()){
                 uRE = UserRoleEnum.USER;
             }else if(adminRadioBtn.isSelected()){
