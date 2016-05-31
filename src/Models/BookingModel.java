@@ -62,6 +62,7 @@ public class BookingModel {
             */
 
 
+        /*
            // TODO: Remove duplicates in result - look in the GUI when clicking on bookings
             statement.executeQuery("SELECT *, b.*, bD.*, ac.name, usr.firstName, usr.lastName FROM bookings b " +
                     "INNER JOIN activities ac ON b.ID = ac.id " +
@@ -70,18 +71,25 @@ public class BookingModel {
                     "JOIN bookinghours ORDER BY bookingDate"
             );
 
+            */
+
+            statement = con.createStatement();
+            statement.executeQuery("SELECT b.*, ac.name, usr.firstName, usr.lastName FROM bookings b " +
+                    "INNER JOIN activities ac ON b.activityId = ac.id " +
+                    "JOIN users usr ON userId = usr.ID"
+            );
             rs = statement.getResultSet();
             while(rs.next()){
                 int ID = rs.getInt("ID");
-                int aID = rs.getInt("id");
+                int aID = rs.getInt("activityId");
                 String activityName = rs.getString("name");
                 String userName = rs.getString("firstName");
                 userName += " " + rs.getString("lastName");
-                int userId = rs.getInt("ID");
-                int participants = rs.getInt("numParticipants");
-                Date date = rs.getDate("bookingDate");
-                Time startTime = rs.getTime("startTime");
-                Time endTime = rs.getTime("endTime");
+                int userId = rs.getInt("userId");
+                int participants = rs.getInt("participants");
+                Date date = rs.getDate("Date");
+                Time startTime = rs.getTime("start");
+                Time endTime = rs.getTime("end");
                 listReturn.add(new Booking(ID,
                         aID,
                         userId,

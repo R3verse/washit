@@ -20,7 +20,7 @@ import java.util.*;
 import java.util.Date;
 
 /**
- * Created by peterzohdy on 23/02/2016.
+ * Gruppe aflevering: Max, Thomas & Memet.
  */
 public class LoginView extends Application
 {
