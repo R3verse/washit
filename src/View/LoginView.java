@@ -20,7 +20,11 @@ import java.util.*;
 import java.util.Date;
 
 /**
+<<<<<<< HEAD
+ * Gruppe aflevering: Max, Thomas & Memet.
+=======
  * Created by x on 13/05/2016.
+>>>>>>> 76f3a03ad6bb4be39e9d3a51c963c302d4a75e82
  */
 public class LoginView extends Application
 {
