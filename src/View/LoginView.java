@@ -108,7 +108,7 @@ public class LoginView extends Application
             }
         });
 
-        // test 
+        // test
         loginBtn = new Button("Login");
         gridPane.add(loginBtn, 1, 3);
         loginBtn.setPrefWidth(100);
