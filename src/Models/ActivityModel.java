@@ -7,7 +7,7 @@ import java.sql.*;
 import java.util.List;
 
 /**
- * Created by AlexanderFalk on 22/02/2016.
+ * Created by x on 12/5/2016.
  */
 public class ActivityModel
 {

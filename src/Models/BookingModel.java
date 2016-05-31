@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by maxjensendk on 25/02/2016.
+ * Created by maxjensendk on 15/05/2016.
  */
 public class BookingModel {
 

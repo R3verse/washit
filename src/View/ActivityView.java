@@ -17,7 +17,7 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 /**
- * Created by AlexanderFalk on 26/02/2016.
+ * Created by x on 16/05/2016.
  */
 public class ActivityView
 {

@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * Created by AlexanderFalk on 23/02/2016.
+ * Created by x on 13/5/2016.
  */
 public class ActivityViewController
 {

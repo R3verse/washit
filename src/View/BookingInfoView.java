@@ -11,7 +11,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 /**
- * Created by AlexanderFalk on 02/03/2016.
+ * Created by x on 12/05/2016.
  * This class is only intends to show info's about the activity the user has picked from booking.
  */
 public class BookingInfoView

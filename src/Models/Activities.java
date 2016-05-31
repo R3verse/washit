@@ -3,7 +3,7 @@ package Models;
 import java.sql.Time;
 
 /**
- * Created by Nikolaj on 23-02-2016.
+ * Created by x on 13-5-2016.
  */
 public class Activities
 {

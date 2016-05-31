@@ -17,7 +17,7 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 /**
- * Created by Zonde on 01-03-2016.
+ * Created by x on 7-05-2016.
  */
 public class UserView{
 

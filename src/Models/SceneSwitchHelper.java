@@ -5,7 +5,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
- * Created by B on 24-02-2016.
+ * Created by B on 14-5-2016.
  */
 public class SceneSwitchHelper
 {

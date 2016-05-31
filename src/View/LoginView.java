@@ -20,7 +20,11 @@ import java.util.*;
 import java.util.Date;
 
 /**
+<<<<<<< HEAD
  * Gruppe aflevering: Max, Thomas & Memet.
+=======
+ * Created by x on 13/05/2016.
+>>>>>>> 76f3a03ad6bb4be39e9d3a51c963c302d4a75e82
  */
 public class LoginView extends Application
 {
@@ -68,8 +72,10 @@ public class LoginView extends Application
 
         //Add image
         imv = new ImageView();
-        image2 = new Image(LoginView.class.getResourceAsStream("../img/adventure.png"));
+        image2 = new Image(LoginView.class.getResourceAsStream("../img/Washa.png"));
         imv.setImage(image2);
+        imv.setFitWidth(220);
+        imv.setFitHeight(70);
         pictureRegion = new HBox();
         pictureRegion.getChildren().add(imv);
         gridPane.add(pictureRegion, 1,0);
