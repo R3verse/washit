@@ -165,7 +165,7 @@ public class CreateBookingView
 
                 convertMiliToHours();
                 int participant = Integer.parseInt(numUsersCbox.getValue().split(" ")[0]);
-                Booking book = new Booking(activities.getId(),selectedUser.getID(),participant,date,startTimeCBox.getValue(),endTimeCBox.getValue());
+                Booking book = new Booking(selectedUser.getID(),participant,date);
                 BookingCreateController.tryInsert(book);
                 stage.close();
 

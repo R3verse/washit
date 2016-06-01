@@ -197,7 +197,6 @@ public class CreateUserView
                         emailField.getText(),
                         addressField.getText(),
                         phoneNumberField.getText(),
-                        birthdayPicker.getEditor().getText(),
                         getRadioBtnValues(session.getIsGuest())//getUserNumber()
                 );
 

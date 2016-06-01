@@ -14,7 +14,7 @@ public class Booking{
     private Time startTime;
     private Time endTime;
 
-    public Booking(){}
+    public Booking(int ID, String status, String description, String userName, Date date){}
     public Booking(int ID, int activityID, int userID, String activityName, String userName, int participants, Date date, Time startTime, Time endTime)
     {
         this.ID = ID;
@@ -28,45 +28,37 @@ public class Booking{
         this.endTime = endTime;
     }
 
-    public Booking(int ID, int activityID, int userID, int participants, Date date, Time startTime, Time endTime)
+    public Booking(int ID, String status, String description, String userName, Date date, Time startTime, Time endTime)
     {
         this.ID = ID;
-        this.activityID = activityID;
-        this.userID = userID;
-        this.participants = participants;
         this.date = date;
         this.startTime = startTime;
         this.endTime = endTime;
     }
     //Overload
-    public Booking(int activityID, int userID, int participants, Date date, Time startTime, Time endTime)
+    public Booking(int activityID, int userID, Date date)
     {
         this.activityID = activityID;
         this.userID = userID;
-        this.participants = participants;
         this.date = date;
-        this.startTime = startTime;
-        this.endTime = endTime;
+
     }
     //Overload
-    public Booking(int ID, int activityID, String activityName, String userName, int participants, Date date, Time startTime, Time endTime)
+    public Booking(int ID, String activityName, String userName, Date date, Time startTime, Time endTime)
     {
         this.ID = ID;
-        this.activityID = activityID;
         this.activityName = activityName;
         this.userName = userName;
-        this.participants = participants;
         this.date = date;
         this.startTime = startTime;
         this.endTime = endTime;
     }
 
     //Overload
-    public Booking(String activityName, String userName, int participants, Date date, Time startTime, Time endTime)
+    public Booking(int ID, int userId, String status, String activityName, String userName, Date date, Time startTime, Time endTime)
     {
         this.activityName = activityName;
         this.userName = userName;
-        this.participants = participants;
         this.date = date;
         this.startTime = startTime;
         this.endTime = endTime;
@@ -133,10 +125,6 @@ public class Booking{
 
     public void setEndTime(Time endTime) {
         this.endTime = endTime;
-    }
-
-    public void setActivityName(String activityName) {
-        this.activityName = activityName;
     }
 
     public void setUserName(String userName) {

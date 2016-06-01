@@ -16,7 +16,7 @@ public class User {
     private Date birthday;
     private UserRoleEnum role;
 
-    public User(String firstName, String lastName, String eMail, String address, int ID, int telephoneNumber,UserRoleEnum role, Date birthday)
+    public User(String firstName, String lastName, String eMail, String address, int ID, int telephoneNumber, UserRoleEnum role)
     {
         this.firstName = firstName;
         this.lastName = lastName;

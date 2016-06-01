@@ -51,37 +51,31 @@ public class BookingModel {
         {
 
             statement = con.createStatement();
-            statement.executeQuery("SELECT b.*, ac.name, usr.firstName, usr.lastName FROM bookings b " +
-                    "INNER JOIN activities ac ON b.activityId = ac.id " +
-                    "JOIN users usr ON userId = usr.ID"
+            statement.executeQuery("SELECT b.*, usr.firstName, usr.lastName FROM booking b " +
+                    "INNER JOIN users usr ON b.ID = usr.ID"
             );
             rs = statement.getResultSet();
             while(rs.next()){
                 int ID = rs.getInt("ID");
-                int aID = rs.getInt("activityId");
-                String activityName = rs.getString("name");
+                String status = rs.getString("status");
+                String description = rs.getString("description");
                 String userName = rs.getString("firstName");
                 userName += " " + rs.getString("lastName");
-                int userId = rs.getInt("userId");
-                int participants = rs.getInt("participants");
+
                 Date date = rs.getDate("Date");
-                Time startTime = rs.getTime("start");
-                Time endTime = rs.getTime("end");
+
                 listReturn.add(new Booking(ID,
-                        aID,
-                        userId,
-                        activityName,
+                        status,
+                        description,
                         userName,
-                        participants,
-                        date,
-                        startTime,
-                        endTime
+                        date
                 ));
             }
         }
         catch(SQLException eSQL)
         {
             System.out.println(eSQL);
+            System.out.println("Error is from here ");
         }
 
         return listReturn;
@@ -92,7 +86,7 @@ public class BookingModel {
     {
         try{
             Statement st = con.createStatement();
-            st.executeUpdate("DELETE FROM bookings WHERE ID = ('"+id+"')");
+            st.executeUpdate("DELETE FROM booking WHERE ID = ('"+id+"')");
         }
         catch (SQLException e)
         {
@@ -111,14 +105,12 @@ public class BookingModel {
             int participants = booking.getParticipants();
             int id = booking.getID();
             String query =
-                    "UPDATE `bookings` " +
+                    "UPDATE `booking` " +
                             "SET " +
-                            "`activityId`=?," +
-                            "`userId`=?," +
+                            "`ID`=?," +
                             "`date`=?," +
                             "`start`=?," +
                             "`end`=?," +
-                            "`participants`=? " +
                             "WHERE id = ?";
             PreparedStatement stmt = con.prepareStatement(query);
             stmt.setInt(1,aId);
@@ -149,15 +141,13 @@ public class BookingModel {
             Time endTime = bookInsert.getEndTime();
             int participants = bookInsert.getParticipants();
             String query =
-                    "INSERT INTO `bookings`( `activityId`, `userId`, `date`, `start`, `end`, `participants`) " +
-                    "VALUES (?,?,?,?,?,?)";
+                    "INSERT INTO `booking`(`userId`, `date`, `start`, `end`) " +
+                            "VALUES (?,?,?,?)";
             PreparedStatement stmt = con.prepareStatement(query);
-            stmt.setInt(1,aId);
-            stmt.setInt(2,userId);
-            stmt.setDate(3,date);
-            stmt.setTime(4,startTime);
-            stmt.setTime(5,endTime);
-            stmt.setInt(6,participants);
+            stmt.setInt(1,userId);
+            stmt.setDate(2,date);
+            stmt.setTime(3,startTime);
+            stmt.setTime(4,endTime);
             stmt.execute();
             System.out.println("inserted booking into table");
         }

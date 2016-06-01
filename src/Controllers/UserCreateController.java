@@ -18,36 +18,27 @@ public class UserCreateController
 
     }
 
-    public void createUser(String fName, String lName, String email, String address, String phone, String bday, int type)
+    public void createUser(String fName, String lName, String email, String address, String phone, int type)
     {
-        java.sql.Date bDate = null;
         int phoneNo = -1;
         boolean failed = false;
         try
         {
-            java.util.Date utilDate = new SimpleDateFormat("dd-MM-yyyy").parse(bday);
-            bDate = new java.sql.Date(utilDate.getTime());
             phoneNo = Integer.parseInt(phone);
         }
         catch (Exception e)
         {
-            System.out.println("Error couldnt parse date or phoneNo");
-            setAlert("***Error***", "Error couldnt parse date or phoneNo", "You might not have filled your information in.");
+            System.out.println("Error couldnt parse phoneNo");
+            setAlert("***Error***", "Error couldnt parse phoneNo", "You might not have filled your information in.");
             failed = true;
         }
 
         if(!failed) {
-            System.out.println(fName + " " + lName + " " + email + " " + address + " " + phoneNo + " " + type + " " + bDate + " " + "1234");
+            System.out.println(fName + " " + lName + " " + email + " " + address + " " + phoneNo + " " + type + " " + "1234");
 
-                if (phoneNo == -1 && bDate == null) {
-                    System.out.println("invalid number and date");
-                    setAlert("***Error***", "invalid number and date", "Number and Date fields!");
-                } else if (bDate == null) {
-                    System.out.println("Invalid birthday");
-                    setAlert("***Error***", "invalid birthday", "birthday field!");
-                } else if (phoneNo == -1) {
-                    System.out.println("Invalid phoneNo");
-                    setAlert("***Error***", "invalid phone number", "Phone field!");
+                if (phoneNo == -1) {
+                    System.out.println("invalid number");
+                    setAlert("***Error***", "invalid number and date", "Number fields!");
                 } else if (!validatePhoneNo(phone)) {
                     // show popup
                 } else if (!validateEmail(email)) {
@@ -62,7 +53,7 @@ public class UserCreateController
                     // TODO: 25-02-2016 1234 er standardkode, skal laves om
                     try {
                         if (!UserModel.getInstance().doesUserExsists(email)) {
-                            UserModel.getInstance().createUser(fName, lName, email, address, phoneNo, type, bDate, "1234");
+                            UserModel.getInstance().createUser(fName, lName, email, address, phoneNo, type, "1234");
                             setAlert("Success!", "User was successfully created!", "Username: " + email + "\nPassword: 1234");
                             System.out.println("Success");
                         } else {

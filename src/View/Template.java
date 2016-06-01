@@ -12,8 +12,6 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-import java.util.Date;
-
 /**
  * Gruppeaflevering: Max, Memet & Thomas
  */
@@ -32,7 +30,7 @@ public class Template extends Application
     }
     public static void main(String[] args)
     {
-        SessionModel.getInstance().setUserSession(new User("asdf","sasdf","asdf","ADSFA",1337,80085, UserRoleEnum.ADMIN,new Date()));
+        SessionModel.getInstance().setUserSession(new User("asdf","sasdf","asdf","ADSFA",1337,80085, UserRoleEnum.ADMIN));
         launch(args);
     }
 

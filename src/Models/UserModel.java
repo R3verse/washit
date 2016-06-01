@@ -68,7 +68,6 @@ public class UserModel {
                 String eMail = rs.getString("eMail");
                 String addr = rs.getString("address");
                 int ID = rs.getInt("ID");
-                Date date = rs.getDate("birthday");
                 UserRoleEnum role = getRole(rs.getInt("role"));
                 int tlfPhNr = rs.getInt("telephoneNumber");
                 // User(String firstName, String lastName, String eMail,
@@ -79,8 +78,7 @@ public class UserModel {
                         addr,
                         ID,
                         tlfPhNr,
-                        role,
-                        date
+                        role
                 ));
             }
         } catch (SQLException eSQL) {
@@ -122,10 +120,9 @@ public class UserModel {
                 String eMail = rs.getString("eMail");
                 String addr = rs.getString("address");
                 int ID = rs.getInt("ID");
-                Date date = rs.getDate("birthday");
-                UserRoleEnum role = getRole(rs.getInt("role"));
+                              UserRoleEnum role = getRole(rs.getInt("role"));
                 int tlfPhNr = rs.getInt("telephoneNumber");
-                userReturn = new User(fName, lName, eMail, addr, ID, tlfPhNr, role, date);
+                userReturn = new User(fName, lName, eMail, addr, ID, tlfPhNr, role);
             }
         } catch (SQLException eSQL) {
             eSQL.printStackTrace();
@@ -157,11 +154,11 @@ public class UserModel {
 
     }
 
-    public void createUser(String firstName, String lastName, String eMail, String address, int telephoneNo, int role, Date birthday, String passWord) {
+    public void createUser(String firstName, String lastName, String eMail, String address, int telephoneNo, int role, String passWord) {
         try {
             Statement st = con.createStatement();
-            st.executeUpdate("INSERT INTO users(firstName, lastName, eMail, address, telephoneNumber, role, birthday, password)" +
-                    "VALUES ('" + firstName + "', '" + lastName + "', '" + eMail + "', '" + address + "', '" + telephoneNo + "', '" + role + "', '" + birthday + "', '" + passWord + "')");
+            st.executeUpdate("INSERT INTO users(firstName, lastName, eMail, address, telephoneNumber, role, password)" +
+                    "VALUES ('" + firstName + "', '" + lastName + "', '" + eMail + "', '" + address + "', '" + telephoneNo + "', '" + role + "', '" + passWord + "')");
 
             System.out.println("Inserted user into database");
         } catch (SQLException e) {
@@ -210,21 +207,6 @@ public class UserModel {
     {
         try {
 
-
-            Date date = null;
-            try{
-                System.out.println(user.getBirthday().toString());
-                java.util.Date utilDate = new SimpleDateFormat("yyyy-MM-dd").parse(user.getBirthday().toString());
-
-                date = new Date(utilDate.getTime());
-
-                date = new java.sql.Date(utilDate.getTime());
-
-
-            }catch(Exception e){
-                e.printStackTrace();
-            }
-
             int userId = user.getID();
             String firstName = user.getFirstName();
             String lastName = user.getLastName();
@@ -241,7 +223,6 @@ public class UserModel {
                             "`address`=?," +
                             "`telephoneNumber`=?," +
                             "`role`=?, " +
-                            "`birthday`=? " +
                             "WHERE id = ?";
             PreparedStatement stmt = con.prepareStatement(query);
             stmt.setString(1, firstName);
@@ -250,8 +231,7 @@ public class UserModel {
             stmt.setString(4, adress);
             stmt.setInt(5, telephoneNumber);
             stmt.setInt(6,role);
-            stmt.setDate(7,date);
-            stmt.setInt(8,userId);
+            stmt.setInt(7,userId);
 
 
             stmt.execute();
