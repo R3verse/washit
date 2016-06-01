@@ -1,7 +1,6 @@
 package Models;
 
 import java.sql.Date;
-import java.sql.Time;
 
 public class Booking{
     private int ID;
@@ -37,8 +36,8 @@ public class Booking{
     private String address;
     private Date date;
 
-    public Booking(int ID, String status, String description, String userName, Date date, String address){}
-    public Booking(int ID, int activityID, int userID, String activityName, String userName, int participants, Date date)
+    public Booking(int ID, Date date){}
+    public Booking(int ID, int userID, String userName, Date date)
     {
         this.ID = ID;
         this.userID = userID;
@@ -46,19 +45,16 @@ public class Booking{
         this.date = date;
     }
 
-    public Booking(int ID, String status, String description, String userName, Date date)
+    public Booking(int ID, String status, String description, Date date, String address)
     {
         this.ID = ID;
+        this.status = status;
+        this.description = description;
         this.date = date;
+        this.address = address;
 
     }
-    //Overload
-    public Booking(int userID, Date date)
-    {
-        this.userID = userID;
-        this.date = date;
 
-    }
     //Overload
     public Booking(int ID, String userName, Date date)
     {
@@ -68,9 +64,9 @@ public class Booking{
     }
 
     //Overload
-    public Booking(int ID, int userId, String status, String activityName, String userName, Date date, Time startTime, Time endTime)
+    public Booking(int ID, String status, Date date, String address)
     {
-        this.userName = userName;
+        this.address = address;
         this.date = date;
     }
 

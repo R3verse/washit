@@ -51,7 +51,7 @@ public class BookingModel {
         {
 
             statement = con.createStatement();
-            statement.executeQuery("SELECT b.*, usr.firstName, usr.lastName FROM booking b " +
+            statement.executeQuery("SELECT b.ID, b.status, b.description, b.Date, b.address  FROM booking b " +
                     "INNER JOIN users usr ON b.ID = usr.ID"
             );
             rs = statement.getResultSet();
@@ -59,16 +59,17 @@ public class BookingModel {
                 int ID = rs.getInt("ID");
                 String status = rs.getString("status");
                 String description = rs.getString("description");
-                String userName = rs.getString("firstName");
-                userName += " " + rs.getString("lastName");
+               // String userName = rs.getString("firstName");
+                //userName += " " + rs.getString("lastName");
 
                 Date date = rs.getDate("Date");
+                String address = rs.getString("address");
 
                 listReturn.add(new Booking(ID,
                         status,
                         description,
-                        userName,
-                        date
+                        date,
+                        address
                 ));
             }
         }

@@ -53,26 +53,20 @@ public class BookingViewController {
         TableColumn idColumns = new TableColumn("Id");
         idColumns.setCellValueFactory(new PropertyValueFactory<>("ID"));
 
-        TableColumn actIDColumn = new TableColumn("Activity");
-        actIDColumn.setCellValueFactory(new PropertyValueFactory<>("activityName"));
+        TableColumn status = new TableColumn("Status");
+        status.setCellValueFactory(new PropertyValueFactory<>("status"));
 
-        TableColumn userIdColumn = new TableColumn("User");
-        userIdColumn.setCellValueFactory(new PropertyValueFactory<>("userName"));
-
-        TableColumn participantsColumn = new TableColumn("Participants");
-        participantsColumn.setCellValueFactory(new PropertyValueFactory<>("participants"));
+        TableColumn description = new TableColumn("Description");
+        description.setCellValueFactory(new PropertyValueFactory<>("description"));
 
         TableColumn dateColumn = new TableColumn("Date");
         dateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
 
-        TableColumn startTimeColumn = new TableColumn("Beginning");
-        startTimeColumn.setCellValueFactory(new PropertyValueFactory<>("startTime"));
+        TableColumn address = new TableColumn("Address");
+        address.setCellValueFactory(new PropertyValueFactory<>("address"));
 
-        TableColumn endTimeColumn = new TableColumn("End");
-        endTimeColumn.setCellValueFactory(new PropertyValueFactory<>("endTime"));
-
-        tableView.getColumns().addAll(idColumns, actIDColumn, userIdColumn, participantsColumn,
-                dateColumn, startTimeColumn, endTimeColumn);
+        tableView.getColumns().addAll(idColumns, status, description,
+                dateColumn, address);
 
         tableView.setItems(setBookings());
     }
