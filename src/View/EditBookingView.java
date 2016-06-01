@@ -43,7 +43,7 @@ public class EditBookingView
         //Setting up the layout
         ComboBox<User> userCBox = new ComboBox();
         ComboBox<String> numUsersCbox = new ComboBox();
-        numUsersCbox.setValue(String.valueOf(booking.getParticipants()));
+        //numUsersCbox.setValue(String.valueOf(booking.getParticipants()));
         ComboBox<Activities> activitiesCBox = new ComboBox<>();
         //activitiesCBox.setValue();
 
@@ -60,13 +60,15 @@ public class EditBookingView
         Activities usedActivity = null;
         for(Activities a: dumbShit)
         {
-            System.out.println(a.getId() +"  " + booking.getActivityID());
+            //System.out.println(a.getId() +"  " + booking.getActivityID());
+            /*
             if(a.getId() == booking.getActivityID())
             {
                 usedActivity = a;
                 activitiesCBox.setValue(a);
                 break;
             }
+            */
         }
         ObservableList fukoff = FXCollections.observableArrayList(new ArrayList<Time>());
         fukoff.add(usedActivity.getStartTime());
@@ -186,12 +188,12 @@ public class EditBookingView
 
 
                 booking.setUserID(userCBox.getValue().getID());
-                booking.setActivityID(activitiesCBox.getValue().getId());
+              //  booking.setActivityID(activitiesCBox.getValue().getId());
                 booking.setDate(date);
-                booking.setStartTime(startTimeCBox.getValue());
-                booking.setEndTime(endTimeCBox.getValue());
+                //  booking.setStartTime(startTimeCBox.getValue());
+                //  booking.setEndTime(endTimeCBox.getValue());
                 int participants = Integer.parseInt(numUsersCbox.getValue().split(" ")[0]);
-                booking.setParticipants(participants);
+                //  booking.setParticipants(participants);
                 BookingEditController.tryUpdate(booking);
                 stage.close();
                 System.out.println("Done");

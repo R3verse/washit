@@ -149,9 +149,6 @@ public class CreateBookingView
         bookBtn.setOnAction(e ->
         {
             User selectedUser = userCBox.getSelectionModel().getSelectedItem();
-            Activities activities = activitiesCBox.getSelectionModel().getSelectedItem();
-            Date startDate = null;
-            Date endDate =null;
             Date date = null;
             try
             {
@@ -165,7 +162,7 @@ public class CreateBookingView
 
                 convertMiliToHours();
                 int participant = Integer.parseInt(numUsersCbox.getValue().split(" ")[0]);
-                Booking book = new Booking(selectedUser.getID(),participant,date);
+                Booking book = new Booking(selectedUser.getID(),date);
                 BookingCreateController.tryInsert(book);
                 stage.close();
 

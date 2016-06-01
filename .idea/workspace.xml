@@ -2,16 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f7250947-3718-483d-ae8e-2fce76b69005" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controllers/UserCreateController.java" afterPath="$PROJECT_DIR$/src/Controllers/UserCreateController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controllers/BookingViewController.java" afterPath="$PROJECT_DIR$/src/Controllers/BookingViewController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Models/Booking.java" afterPath="$PROJECT_DIR$/src/Models/Booking.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Models/BookingModel.java" afterPath="$PROJECT_DIR$/src/Models/BookingModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Models/DatabaseConnector.java" afterPath="$PROJECT_DIR$/src/Models/DatabaseConnector.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Models/User.java" afterPath="$PROJECT_DIR$/src/Models/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Models/UserModel.java" afterPath="$PROJECT_DIR$/src/Models/UserModel.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/View/CreateBookingView.java" afterPath="$PROJECT_DIR$/src/View/CreateBookingView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/View/CreateUserView.java" afterPath="$PROJECT_DIR$/src/View/CreateUserView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/View/Template.java" afterPath="$PROJECT_DIR$/src/View/Template.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/View/EditBookingView.java" afterPath="$PROJECT_DIR$/src/View/EditBookingView.java" />
     </list>
     <ignored path="Washit.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -47,8 +42,8 @@
       <file leaf-file-name="CreateBookingView.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/View/CreateBookingView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7566225">
-              <caret line="182" column="5" selection-start-line="182" selection-start-column="5" selection-end-line="182" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.70033115">
+              <caret line="180" column="0" selection-start-line="180" selection-start-column="0" selection-end-line="180" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -58,7 +53,7 @@
         <entry file="file://$PROJECT_DIR$/src/Models/UserModel.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="169" column="14" selection-start-line="169" selection-start-column="11" selection-end-line="169" selection-end-column="14" />
+              <caret line="156" column="101" selection-start-line="156" selection-start-column="101" selection-end-line="156" selection-end-column="101" />
               <folding>
                 <marker date="1464773113399" expanded="true" signature="1598:1617" placeholder="SELECT * FRO... users" />
                 <marker date="1464773113399" expanded="true" signature="2872:2950" placeholder="SELECT * FRO... users" />
@@ -75,17 +70,27 @@
       <file leaf-file-name="BookingModel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Models/BookingModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="67" column="24" selection-start-line="67" selection-start-column="24" selection-end-line="67" selection-end-column="24" />
+            <state vertical-scroll-proportion="-21.275862">
+              <caret line="148" column="38" selection-start-line="148" selection-start-column="38" selection-end-line="148" selection-end-column="38" />
               <folding>
-                <marker date="1464784226029" expanded="true" signature="1176:1231" placeholder="SELECT b.*, booking" />
-                <marker date="1464784226029" expanded="true" signature="1176:1255" placeholder="SELECT b.*, booking" />
-                <marker date="1464784226029" expanded="true" signature="1176:1280" placeholder="SELECT b.*, booking" />
-                <marker date="1464784226029" expanded="true" signature="1176:1293" placeholder="SELECT b.*, booking" />
-                <marker date="1464784226029" expanded="true" signature="2260:2301" placeholder="DELETE FROM " />
-                <marker date="1464784226029" expanded="true" signature="2855:3120" placeholder="UPDATE `book... " />
-                <marker date="1464784226029" expanded="true" signature="4063:4168" placeholder="INSERT INTO `booking`... " />
+                <marker date="1464785521711" expanded="true" signature="1176:1231" placeholder="SELECT b.*, booking" />
+                <marker date="1464785521711" expanded="true" signature="1176:1255" placeholder="SELECT b.*, booking" />
+                <marker date="1464785521711" expanded="true" signature="1176:1280" placeholder="SELECT b.*, booking" />
+                <marker date="1464785521711" expanded="true" signature="1176:1293" placeholder="SELECT b.*, booking" />
+                <marker date="1464785521711" expanded="true" signature="2260:2301" placeholder="DELETE FROM " />
+                <marker date="1464785521711" expanded="true" signature="2808:3127" placeholder="UPDATE `book... " />
+                <marker date="1464785521711" expanded="true" signature="3958:4081" placeholder="INSERT INTO `booking`... " />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EditBookingView.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/View/EditBookingView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="195" column="19" selection-start-line="195" selection-start-column="19" selection-end-line="195" selection-end-column="19" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -94,8 +99,21 @@
         <entry file="file://$PROJECT_DIR$/src/Models/Booking.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="38" column="56" selection-start-line="38" selection-start-column="56" selection-end-line="38" selection-end-column="56" />
-              <folding />
+              <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+              <folding>
+                <element signature="e#193#194#0" expanded="true" />
+                <element signature="e#227#228#0" expanded="true" />
+                <element signature="e#281#282#0" expanded="true" />
+                <element signature="e#327#328#0" expanded="true" />
+                <element signature="e#360#361#0" expanded="true" />
+                <element signature="e#389#390#0" expanded="true" />
+                <element signature="e#433#434#0" expanded="true" />
+                <element signature="e#469#470#0" expanded="true" />
+                <element signature="e#503#504#0" expanded="true" />
+                <element signature="e#533#534#0" expanded="true" />
+                <element signature="e#579#580#0" expanded="true" />
+                <element signature="e#617#618#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -114,7 +132,7 @@
         <entry file="file://$PROJECT_DIR$/src/Controllers/BookingViewController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="32" column="9" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
+              <caret line="95" column="20" selection-start-line="95" selection-start-column="20" selection-end-line="95" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -135,7 +153,6 @@
       <list>
         <option value="$PROJECT_DIR$/src/README.md" />
         <option value="$PROJECT_DIR$/src/View/EditUserView.java" />
-        <option value="$PROJECT_DIR$/src/View/EditBookingView.java" />
         <option value="$USER_HOME$/Downloads/mysql-connector-java-5.1.39/mysql-connector-java-5.1.39-bin.jar!/com/mysql/jdbc/Util.class" />
         <option value="$PROJECT_DIR$/src/View/Template.java" />
         <option value="$PROJECT_DIR$/src/View/LoginView.java" />
@@ -146,8 +163,10 @@
         <option value="$PROJECT_DIR$/src/Models/UserModel.java" />
         <option value="$PROJECT_DIR$/src/Controllers/UserCreateController.java" />
         <option value="$PROJECT_DIR$/src/View/CreateUserView.java" />
-        <option value="$PROJECT_DIR$/src/Models/BookingModel.java" />
         <option value="$PROJECT_DIR$/src/Models/Booking.java" />
+        <option value="$PROJECT_DIR$/src/Models/BookingModel.java" />
+        <option value="$PROJECT_DIR$/src/View/EditBookingView.java" />
+        <option value="$PROJECT_DIR$/src/Controllers/BookingViewController.java" />
         <option value="$PROJECT_DIR$/src/View/CreateBookingView.java" />
       </list>
     </option>
@@ -789,12 +808,12 @@
       <option name="number" value="Default" />
       <updated>1464001321859</updated>
       <workItem from="1464772371844" duration="3020000" />
-      <workItem from="1464783827637" duration="532000" />
+      <workItem from="1464783827637" duration="1859000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3552000" />
+    <option name="totallyTimeSpent" value="4879000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1924" height="1056" extended-state="0" />
@@ -1113,14 +1132,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/EditBookingView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="196" column="0" selection-start-line="196" selection-start-column="0" selection-end-line="196" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controllers/UserViewController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1221,22 +1232,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/BookingView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/BookingViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="32" column="9" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/View/LoginView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1245,18 +1240,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Models/Booking.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="38" column="56" selection-start-line="38" selection-start-column="56" selection-end-line="38" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Models/UserModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="169" column="14" selection-start-line="169" selection-start-column="11" selection-end-line="169" selection-end-column="14" />
+          <caret line="156" column="101" selection-start-line="156" selection-start-column="101" selection-end-line="156" selection-end-column="101" />
           <folding>
             <marker date="1464773113399" expanded="true" signature="1598:1617" placeholder="SELECT * FRO... users" />
             <marker date="1464773113399" expanded="true" signature="2872:2950" placeholder="SELECT * FRO... users" />
@@ -1269,26 +1256,71 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Models/BookingModel.java">
+    <entry file="file://$PROJECT_DIR$/src/View/BookingView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="67" column="24" selection-start-line="67" selection-start-column="24" selection-end-line="67" selection-end-column="24" />
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Models/Booking.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
           <folding>
-            <marker date="1464784226029" expanded="true" signature="1176:1231" placeholder="SELECT b.*, booking" />
-            <marker date="1464784226029" expanded="true" signature="1176:1255" placeholder="SELECT b.*, booking" />
-            <marker date="1464784226029" expanded="true" signature="1176:1280" placeholder="SELECT b.*, booking" />
-            <marker date="1464784226029" expanded="true" signature="1176:1293" placeholder="SELECT b.*, booking" />
-            <marker date="1464784226029" expanded="true" signature="2260:2301" placeholder="DELETE FROM " />
-            <marker date="1464784226029" expanded="true" signature="2855:3120" placeholder="UPDATE `book... " />
-            <marker date="1464784226029" expanded="true" signature="4063:4168" placeholder="INSERT INTO `booking`... " />
+            <element signature="e#193#194#0" expanded="true" />
+            <element signature="e#227#228#0" expanded="true" />
+            <element signature="e#281#282#0" expanded="true" />
+            <element signature="e#327#328#0" expanded="true" />
+            <element signature="e#360#361#0" expanded="true" />
+            <element signature="e#389#390#0" expanded="true" />
+            <element signature="e#433#434#0" expanded="true" />
+            <element signature="e#469#470#0" expanded="true" />
+            <element signature="e#503#504#0" expanded="true" />
+            <element signature="e#533#534#0" expanded="true" />
+            <element signature="e#579#580#0" expanded="true" />
+            <element signature="e#617#618#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Models/BookingModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-21.275862">
+          <caret line="148" column="38" selection-start-line="148" selection-start-column="38" selection-end-line="148" selection-end-column="38" />
+          <folding>
+            <marker date="1464785521711" expanded="true" signature="1176:1231" placeholder="SELECT b.*, booking" />
+            <marker date="1464785521711" expanded="true" signature="1176:1255" placeholder="SELECT b.*, booking" />
+            <marker date="1464785521711" expanded="true" signature="1176:1280" placeholder="SELECT b.*, booking" />
+            <marker date="1464785521711" expanded="true" signature="1176:1293" placeholder="SELECT b.*, booking" />
+            <marker date="1464785521711" expanded="true" signature="2260:2301" placeholder="DELETE FROM " />
+            <marker date="1464785521711" expanded="true" signature="2808:3127" placeholder="UPDATE `book... " />
+            <marker date="1464785521711" expanded="true" signature="3958:4081" placeholder="INSERT INTO `booking`... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/EditBookingView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="195" column="19" selection-start-line="195" selection-start-column="19" selection-end-line="195" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controllers/BookingViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="95" column="20" selection-start-line="95" selection-start-column="20" selection-end-line="95" selection-end-column="20" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/View/CreateBookingView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7566225">
-          <caret line="182" column="5" selection-start-line="182" selection-start-column="5" selection-end-line="182" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.70033115">
+          <caret line="180" column="0" selection-start-line="180" selection-start-column="0" selection-end-line="180" selection-end-column="0" />
           <folding />
         </state>
       </provider>

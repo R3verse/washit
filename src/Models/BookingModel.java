@@ -97,31 +97,30 @@ public class BookingModel {
     public void updateBooking(Booking booking)
     {
         try {
-            int aId = booking.getActivityID();
+
             int userId = booking.getUserID();
+            String status = booking.getStatus();
+            String description = booking.getDescription();
             Date date = booking.getDate();
-            Time startTime = booking.getStartTime();
-            Time endTime = booking.getEndTime();
-            int participants = booking.getParticipants();
+            String address = booking.getAddress();
             int id = booking.getID();
             String query =
                     "UPDATE `booking` " +
                             "SET " +
                             "`ID`=?," +
-                            "`date`=?," +
-                            "`start`=?," +
-                            "`end`=?," +
+                            "`status`=?," +
+                            "`description`=?," +
+                            "`Date`=?," +
+                            "`address`=?," +
                             "WHERE id = ?";
             PreparedStatement stmt = con.prepareStatement(query);
-            stmt.setInt(1,aId);
-            stmt.setInt(2,userId);
-            stmt.setDate(3,date);
-            stmt.setTime(4,startTime);
-            stmt.setTime(5,endTime);
-            stmt.setInt(6,participants);
-            stmt.setInt(7,id);
+            stmt.setInt(1,userId);
+            stmt.setString(2,status);
+            stmt.setString(3,description);
+            stmt.setDate(4,date);
+            stmt.setString(5,address);
 
-            System.out.println(aId + " " + userId);
+            System.out.println(id + " " + userId);
             stmt.execute();
         }
         catch (SQLException e)
@@ -134,20 +133,20 @@ public class BookingModel {
     {
         try
         {
-            int aId = bookInsert.getActivityID();
             int userId = bookInsert.getUserID();
+            String status = bookInsert.getStatus();
+            String description = bookInsert.getDescription();
             Date date = bookInsert.getDate();
-            Time startTime = bookInsert.getStartTime();
-            Time endTime = bookInsert.getEndTime();
-            int participants = bookInsert.getParticipants();
+            String address = bookInsert.getAddress();
             String query =
-                    "INSERT INTO `booking`(`userId`, `date`, `start`, `end`) " +
-                            "VALUES (?,?,?,?)";
+                    "INSERT INTO `booking`(`ID`, `status`, `description`, `Date`, `address`) " +
+                            "VALUES (?,?,?,?,?)";
             PreparedStatement stmt = con.prepareStatement(query);
             stmt.setInt(1,userId);
-            stmt.setDate(2,date);
-            stmt.setTime(3,startTime);
-            stmt.setTime(4,endTime);
+            stmt.setString(2,status);
+            stmt.setString(3,description);
+            stmt.setDate(4,date);
+            stmt.setString(5,address);
             stmt.execute();
             System.out.println("inserted booking into table");
         }

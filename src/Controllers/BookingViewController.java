@@ -91,11 +91,13 @@ public class BookingViewController {
 
             if (searchActivityName.length() != 0 && searchUserName.length() != 0)
             {
+                /*
                 if (b.getUserName().toLowerCase().contains(searchUserName.toLowerCase()) &&
-                        b.getActivityName().toLowerCase().contains(searchActivityName.toLowerCase()))
+                      b.getActivityName().toLowerCase().contains(searchActivityName.toLowerCase()))
                 {
                     bookingSearch.add(b);
                 }
+                */
             }
             else if(searchActivityName.length()==0 && searchUserName.length()!=0)
             {
@@ -107,7 +109,7 @@ public class BookingViewController {
 
             else if(searchActivityName.length()!=0 && searchUserName.length()==0)
             {
-                if(b.getActivityName().toLowerCase().contains(searchActivityName.toLowerCase()))
+                //   if(b.getActivityName().toLowerCase().contains(searchActivityName.toLowerCase()))
                 {
                     bookingSearch.add(b);
                 }
@@ -126,7 +128,7 @@ public class BookingViewController {
     {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Slet booking");
-        alert.setHeaderText("Er du sikker på at du vil slette "+booking.getActivityName()+" bookingen for " +booking.getUserName()+ "?");
+        //  alert.setHeaderText("Er du sikker på at du vil slette "+booking.getActivityName()+" bookingen for " +booking.getUserName()+ "?");
         alert.setContentText("Den vil blive slettet permanent");
 
         Optional<ButtonType> result = alert.showAndWait();
