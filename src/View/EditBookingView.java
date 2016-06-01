@@ -44,7 +44,7 @@ public class EditBookingView
         ComboBox<User> userCBox = new ComboBox();
         ComboBox<String> numUsersCbox = new ComboBox();
         //numUsersCbox.setValue(String.valueOf(booking.getParticipants()));
-        ComboBox<Activities> activitiesCBox = new ComboBox<>();
+        ComboBox<Booking> activitiesCBox = new ComboBox<>();
         //activitiesCBox.setValue();
 
         //startTimeCBox.setValue(booking.getStartTime().getTime());
@@ -56,32 +56,31 @@ public class EditBookingView
 
         // TODO: 02-03-2016 jesus fix mig 
         /*************************************TEST**************************/
-        List<Activities> dumbShit = ActivityModel.getInstance().getActivities();
-        Activities usedActivity = null;
-        for(Activities a: dumbShit)
+        //List<Activities> dumbShit = ActivityModel.getInstance().getActivities();
+        List<Booking> dumbShit = BookingModel.getInstance().getBookings();
+        Booking usedActivity = null;
+        for(Booking a: dumbShit)
         {
             //System.out.println(a.getId() +"  " + booking.getActivityID());
-            /*
-            if(a.getId() == booking.getActivityID())
+
+            if(a.getID() == booking.getID())
             {
                 usedActivity = a;
                 activitiesCBox.setValue(a);
                 break;
             }
-            */
+
         }
         ObservableList fukoff = FXCollections.observableArrayList(new ArrayList<Time>());
-        fukoff.add(usedActivity.getStartTime());
+
         ObservableList fukinn = FXCollections.observableArrayList(new ArrayList<Time>());
-        fukinn.add(usedActivity.getEndTime());
+
         //Never touch this please
         startTimeCBox.setItems(fukoff);
-        startTimeCBox.setValue(usedActivity.getStartTime());
         endTimeCBox.setItems(fukinn);
-        endTimeCBox.setValue(usedActivity.getEndTime());
 
-        ObservableList<Activities> arrSut = FXCollections.observableArrayList();
-        arrSut.addAll(ActivityModel.getInstance().getActivities());
+        ObservableList<Booking> arrSut = FXCollections.observableArrayList();
+        arrSut.addAll(BookingModel.getInstance().getBookings());
         activitiesCBox.setItems(arrSut);
 
         List<User> userList = UserModel.getInstance().getUserList();
@@ -158,16 +157,12 @@ public class EditBookingView
         activitiesCBox.valueProperty().addListener((observable, oldValue, newValue) ->
         {
             startTimeCBox.getItems().clear();
-            Time starTime = newValue.getStartTime();
-            startTimeCBox.getItems().addAll(starTime);
             startTimeCBox.getSelectionModel().select(0);
         });
 
         activitiesCBox.valueProperty().addListener((observable, oldValue, newValue) ->
         {
             endTimeCBox.getItems().clear();
-            Time endTime = newValue.getEndTime();
-            endTimeCBox.getItems().addAll(endTime);
             endTimeCBox.getSelectionModel().select(0);
         });
         //searchField.setOnKeyReleased(e-> BookingCreateController.search(userCBox,searchField));
