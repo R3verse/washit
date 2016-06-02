@@ -81,13 +81,16 @@ public class BookingViewController {
         tableView.setItems(setBookings());
     }
 
-    public void search(TableView<Booking> bookingsTableView, TextField name, TextField user, TextField date)
+    public void search(TableView<Booking> bookingsTableView, TextField name, TextField user, TextField date, TextField bookId, TextField address)
     {
         List<Booking> bookings = BookingModel.getInstance().getBookings();
         List<Booking> bookingSearch = new ArrayList<>();
 
         String searchBookingDescription = name.getText();
         String searchUserName = user.getText();
+        String searchDate = date.getText();
+        String searchBookingId = bookId.getText();
+        String searchAddress = address.getText();
 
         for (Booking b : bookings)
 
@@ -111,9 +114,29 @@ public class BookingViewController {
                 }
             }
 
-            else if(searchBookingDescription.length()!=0 && searchUserName.length()==0)
+            else if(searchBookingDescription.length() !=0)
             {
-                //   if(b.getActivityName().toLowerCase().contains(searchBookingDescription.toLowerCase()))
+
+                if (b.getDescription().toLowerCase().contains(searchBookingDescription.toLowerCase()))
+                {
+                    bookingSearch.add(b);
+                }
+
+            }
+            else if (searchDate.length() != 0)
+            {
+                bookingSearch.add(b);
+
+            }
+
+            else if (searchBookingId.length() != 0)
+            {
+                bookingSearch.add(b);
+
+            }
+            else if (searchAddress.length() != 0)
+            {
+                if (b.getAddress().toLowerCase().contains(searchAddress.toLowerCase()))
                 {
                     bookingSearch.add(b);
                 }
@@ -170,4 +193,8 @@ public class BookingViewController {
         bookingTableView.setItems(BookingViewController.setBookings());
     }
 
+    public void editStart(TableView<Booking> bookingTableView) {
+
+
+    }
 }

@@ -9,12 +9,15 @@ import javafx.scene.text.Text;
  */
 public class BookingViewInfoController
 {
-    public void fillFields(Activities activities, Text name, Text minAge, Text startTime, Text endTime, TextArea description)
+    public void fillFields(Activities activities, Text status, TextArea description, Text date, Text user, TextArea address, Text time)
     {
-        name.setText(activities.getName());
-        minAge.setText(String.valueOf(activities.getMinAge()));
-        startTime.setText(String.valueOf(activities.getStartTime()));
-        endTime.setText(String.valueOf(activities.getEndTime()));
-        description.setText(activities.getDescription());
+
+        // Status,description,date,user,address,time
+        status.setText(activities.getStatus());
+        description.setText(String.valueOf(activities.getDescription()));
+        date.setText(String.valueOf(activities.getDate()));
+        user.setText(activities.getUser());
+        address.setText(activities.getAddress());
+        time.setText(String.valueOf(activities.getTime()));
     }
 }

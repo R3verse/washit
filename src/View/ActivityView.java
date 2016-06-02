@@ -1,8 +1,10 @@
 package View;
 
 import Controllers.ActivityViewController;
+import Controllers.BookingViewController;
 import Models.Activities;
 import Models.ActivityModel;;
+import Models.Booking;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.ContextMenu;
@@ -24,14 +26,22 @@ public class ActivityView
 
     private TextField searchActivitiesName = new TextField();
     private TextField searchActivitiesAge = new TextField();
-    private TableView<Activities> activitiesTableView;
-    private ActivityViewController activityViewController = new ActivityViewController();
+    private TextField searchDate = new TextField();
+    private TextField searchBookId = new TextField();
+    private TextField searchAddress = new TextField();
+
+
+    private TableView<Booking> activitiesTableView;
+    private BookingViewController activityViewController = new BookingViewController();
+
+
+    //TODO: - Skal kunne ændre + oprette --> Status,description,date,user,address,time
 
     public BorderPane innerRootBorderPaneActivities()
     {
         BorderPane layout = new BorderPane();
         activitiesTableView = new TableView<>();
-        activityViewController.btnClickedToShowActivities(activitiesTableView);
+        activityViewController.btnClickedToShowBookings(activitiesTableView);
 
 
         //Image Magnifier
@@ -40,7 +50,7 @@ public class ActivityView
         imv.setImage(image);
         imv.setOnMouseClicked(e->
         {
-            activityViewController.search(activitiesTableView, searchActivitiesName, searchActivitiesAge);
+            activityViewController.search(activitiesTableView, searchActivitiesName, searchActivitiesAge, searchDate, searchBookId, searchAddress);
         });
 
         //Image Plussign
@@ -67,7 +77,7 @@ public class ActivityView
         searchActivitiesHolder.setSpacing(3);
 
 
-        searchActivitiesName.setPromptText("Search activity...");
+        searchActivitiesName.setPromptText("Search Booking...");
         searchActivitiesAge.setPromptText("Search age...");
 
         //Settings the HBox'

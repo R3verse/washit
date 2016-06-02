@@ -30,7 +30,7 @@ public class UserLoginController
             System.out.println(SessionModel.getInstance().getLoggedInUser().getEMail());
             SceneSwitchHelper helper = new SceneSwitchHelper();
             SceneSwitchHelper swh = new SceneSwitchHelper();
-            swh.setScene(new Template().startScene(),1000,600,"Main");
+            swh.setScene(new Template().startScene(),1000,600,"Washa");
         }
         else
         {

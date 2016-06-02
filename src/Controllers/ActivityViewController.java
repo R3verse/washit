@@ -76,7 +76,7 @@ public class ActivityViewController
         List<Activities> arrActivity = ActivityModel.getInstance().getActivities();
         List<Activities> arrActivitySearch = new ArrayList<>();
 
-        String seachName = name.getText();
+        String searchName = name.getText();
         int intAge = 0;
         try
         {
@@ -91,30 +91,20 @@ public class ActivityViewController
         }
         for (Activities a : arrActivity)
         {
-            if (seachName.length() != 0 && minAge.getText().length() != 0)
+            if (searchName.length() != 0)
             {
-                if (a.getName().toLowerCase().contains(seachName.toLowerCase()) && a.getMinAge() >= intAge)
+
+                if (a.getUser().toLowerCase().contains(searchName.toLowerCase()) &&
+                        a.getDescription().toLowerCase().contains(searchName.toLowerCase()))
                 {
-                    arrActivitySearch.add(a);
+                    arrActivity.add(a);
                 }
+
             }
-            else if (seachName.length() == 0 && minAge.getText().length() != 0)
-            {
-                if (a.getMinAge() >= intAge)
-                {
-                    arrActivitySearch.add(a);
-                }
-            }
-            else if (seachName.length() != 0 && minAge.getText().length() == 0)
-            {
-                if (a.getName().toLowerCase().contains(seachName.toLowerCase()))
-                {
-                    arrActivitySearch.add(a);
-                }
-            }
+
             else
             {
-                arrActivitySearch.add(a);
+                arrActivity.add(a);
             }
         }
 
@@ -142,9 +132,9 @@ public class ActivityViewController
     }
     public void delete(TableView<Activities> activityViewTableView)
     {
-        if(setConfirmAlert(activityViewTableView.getSelectionModel().getSelectedItem().getName()))
+        if(setConfirmAlert(activityViewTableView.getSelectionModel().getSelectedItem().getUser()))
         {
-            ActivityModel.getInstance().deleteActivity(activityViewTableView.getSelectionModel().getSelectedItem().getId());
+            ActivityModel.getInstance().deleteActivity(activityViewTableView.getSelectionModel().getSelectedItem().getID());
             activityViewTableView.setItems(new ActivityViewController().setActivities());
         }
     }

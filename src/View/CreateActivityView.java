@@ -2,6 +2,8 @@ package View;
 
 import Controllers.ActivityCreateController;
 import Controllers.ActivityViewController;
+import Controllers.UserEditController;
+import Models.Booking;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
@@ -9,6 +11,10 @@ import javafx.scene.layout.HBox;
 import javafx.scene.text.Font;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+
+import java.sql.Date;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 
 /**
  * Created by x on 15-05-2016.
@@ -19,6 +25,8 @@ public class CreateActivityView
     private static Stage stage;
     private ActivityCreateController activityCreateController = new ActivityCreateController();
 
+
+    //TODO: Status,description,date,user,address,time
     public GridPane createActivityPane(Stage thisStage)
     {
         stage = thisStage;
@@ -26,22 +34,47 @@ public class CreateActivityView
         GridPane gridCreatingActivity = new GridPane();
         //The instances we need to create an activity
         Label createLabel = new Label();
-        Label nameLabel = new Label("Aktivitetsnavn");
-        TextField nameField = new TextField();
-        Label minAgeLabel = new Label("Minimumsalder");
-        TextField minAgeField = new TextField();
-        Label startTimeLabel = new Label("Start Tid");
-        ComboBox startTimeBox = new ComboBox();
-        Label endTimeLabel = new Label("Slut tid");
-        ComboBox endTimeBox = new ComboBox();
-        Label descriptionLabel = new Label("Beskrivelse af aktivitet");
-        TextArea descriptionField = new TextArea();
+
+        Label status = new Label("Status");
+        TextField statusField = new TextField();
+
+        Label description = new Label("Description");
+        TextField descriptionField = new TextField();
+
+        Label date = new Label("Date");
+        DatePicker datePicker = new DatePicker();
+        Date dateField = null;
+
+        try{
+            System.out.println(Booking.getDate().toString());
+            java.util.Date utilDate = new SimpleDateFormat("yyyy-MM-dd").parse(datePicker.getValue().toString());
+            dateField = new java.sql.Date(utilDate.getTime());
+
+            Booking.setDate(dateField);
+
+
+
+        }catch(Exception e2){
+            System.err.println("Couldn't parse date: " + e2);
+        }
+        final Date finalDateField = dateField;
+
+        Label user = new Label("User");
+        TextField userField = new TextField();
+
+        Label address = new Label("Address");
+        TextField addressField = new TextField();
+
+        Label time = new Label("Time");
+        TextField timeFiled = new TextField();
+
         Button btnConfirm = new Button("Confirm");
 
         //Action to confirm the input to create an activity
+
         btnConfirm.setOnAction(event ->
         {
-           activityCreateController.confirm(nameField,startTimeBox,endTimeBox,descriptionField,minAgeField,stage);
+           activityCreateController.confirm(statusField,descriptionField,finalDateField,userField,addressField,timeFiled,stage);
         });
 
         //Customizing the grid
@@ -53,31 +86,6 @@ public class CreateActivityView
         createLabel.setText("Opret en aktivitet");
         createLabel.setFont(new Font("Cambria", 32));
 
-        //Customizing the nameField
-        nameField.setPromptText("Skriv aktivitetsnavnet");
-
-        //Customizing the minAgeField
-        minAgeField.setPromptText("Indtast minimums alderen");
-
-        //Customizing startTime and EndTime
-        startTimeBox.setPromptText("Start tid");
-        endTimeBox.setPromptText("Slut tid");
-        for(int i = 8; i < 23; i++)
-        {
-            for(int j = 0; j < 46; j = j + 15)
-            {
-                startTimeBox.getItems().addAll(setTime(i) + ":" + setTime(j));
-                endTimeBox.getItems().addAll(setTime(i) + ":" + setTime(j));
-            }
-        }
-
-
-        //Customizing the combobox'
-        startTimeBox.setStyle("-fx-background-color: linear-gradient(white 00%, #67db6e 100%)");
-        startTimeBox.setPrefSize(100, 30);
-        endTimeBox.setStyle("-fx-background-color: linear-gradient(white 00%, #67db6e 100%)");
-        endTimeBox.setPrefSize(100, 32);
-
         //Customizing the button
         btnConfirm.setStyle("-fx-background-color: linear-gradient(white 00%, #67db6e 100%)");
 
@@ -86,19 +94,23 @@ public class CreateActivityView
         hboxForBtnConfirm.getChildren().add(btnConfirm);
         hboxForBtnConfirm.setAlignment(Pos.CENTER_RIGHT);
 
+
+        //TODO: Status,description,date,user,address,time
         //Adding the attributes to the Grid
         gridCreatingActivity.add(createLabel, 0, 0);
-        gridCreatingActivity.add(nameLabel, 0, 1);
-        gridCreatingActivity.add(nameField, 0, 2);
-        gridCreatingActivity.add(minAgeLabel, 0, 3);
-        gridCreatingActivity.add(minAgeField, 0, 4);
-        gridCreatingActivity.add(startTimeLabel, 0, 5);
-        gridCreatingActivity.add(startTimeBox, 0, 6);
-        gridCreatingActivity.add(endTimeLabel, 1, 5);
-        gridCreatingActivity.add(endTimeBox, 1, 6);
-        gridCreatingActivity.add(descriptionLabel, 0, 7);
-        gridCreatingActivity.add(descriptionField, 0, 8, 5, 1);
-        gridCreatingActivity.add(hboxForBtnConfirm, 1, 9, 5, 1);
+        gridCreatingActivity.add(status, 0, 1);
+        gridCreatingActivity.add(statusField, 0, 2);
+        gridCreatingActivity.add(description, 0, 3);
+        gridCreatingActivity.add(descriptionField, 0, 4);
+        gridCreatingActivity.add(date, 0, 5);
+        gridCreatingActivity.add(datePicker, 0, 6);
+        gridCreatingActivity.add(user, 1, 5);
+        gridCreatingActivity.add(userField, 1, 6);
+        gridCreatingActivity.add(address, 0, 7);
+        gridCreatingActivity.add(addressField, 0, 8, 5, 1);
+        gridCreatingActivity.add(time, 0, 9, 5, 1);
+        gridCreatingActivity.add(timeFiled, 0, 10, 5, 1);
+        gridCreatingActivity.add(hboxForBtnConfirm, 1, 11, 5, 1);
 
         return gridCreatingActivity;
     }

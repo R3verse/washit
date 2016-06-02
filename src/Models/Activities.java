@@ -1,81 +1,138 @@
 package Models;
 
+import java.sql.Date;
 import java.sql.Time;
 
 /**
- * Created by x on 13-5-2016.
+ * Gruppeaflevering: Max, Memet & Thomas
  */
 public class Activities
 {
 
-    private int id;
-    private String name;
-    private int minAge;
-    private Time startTime;
-    private Time endTime;
+    private String status;
     private String description;
+    private Date date;
 
-    public Activities(int id, String name, int minAge, Time startTime, Time endTime, String description) {
-        this.id = id;
-        this.name = name;
-        this.minAge = minAge;
-        this.startTime = startTime;
-        this.endTime = endTime;
+    private int ID;
+    private String firstName;
+    private String lastName;
+    private String user;
+    private String address;
+    private Time time;
+
+
+    // Status,description,date,user,address,time
+    public Activities(int ID, String status, String description, Date date, String firstName, String lastName, String address, Time time) {
+        this.ID = ID;
+        this.status = status;
         this.description = description;
+        this.date = date;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.time = time;
+    }
+
+    public Activities(int id, String status, String description, Date date, String user, String address, Time time){
+        this.ID = id;
+        this.status = status;
+        this.description = description;
+        this.date = date;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.user += firstName + " " + lastName;
+        this.user = user;
+
+        this.address = address;
+        this.time = time;
+
+    }
+
+    public Activities(String status, String description, Date date, String user, String address, Time time) {
+        this.status = status;
+        this.description = description;
+        this.date = date;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.user += firstName + " " + lastName;
+        this.user = user;
+
+        this.address = address;
+        this.time = time;
+
     }
 
 
-    public int getId() {
-        return id;
+    public String getStatus() {
+        return status;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getDescription() {
         return description;
     }
 
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
     public void setDescription(String description) {
         this.description = description;
     }
 
-    public int getMinAge() {
-        return minAge;
+    public Date getDate() {
+        return date;
     }
 
-    public void setMinAge(int minAge) {
-        this.minAge = minAge;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
-    public Time getStartTime() {
-        return startTime;
+    public String getAddress() {
+        return address;
     }
 
-    public void setStartTime(Time startTime) {
-        this.startTime = startTime;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public Time getEndTime() {
-        return endTime;
+    public Time getTime() {
+        return time;
     }
 
-    public void setEndTime(Time endTime) {
-        this.endTime = endTime;
-    }
-
-    public String toString()
-    {
-        return name;
+    public void setTime(Time time) {
+        this.time = time;
     }
 
 

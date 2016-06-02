@@ -49,21 +49,24 @@ public class ActivityModel
         ObservableList<Activities> data = FXCollections.observableArrayList();
         try
         {
-            String sql = "SELECT * FROM activities";
+            String sql = "SELECT * FROM booking";
             PreparedStatement statement = con.prepareStatement(sql);
 
             ResultSet rs = statement.executeQuery();
 
             while (rs.next())
             {
-                int id = rs.getInt("id");
-                String name = rs.getString("name");
-                int minAge = rs.getInt("minAge");
-                Time startTime = rs.getTime("startTime");
-                Time endTime = rs.getTime("endTime");
-                String description = rs.getString("description");
+                // Status,description,date,user,address,time
+                int id = rs.getInt("ID");
+                String status = rs.getString("description");
+                String desription = rs.getString("description");
+                Date date = rs.getDate("date");
+                String user = rs.getString("firstName");
+                user += rs.getString("lastName");
+                String address = rs.getString("address");
+                Time time = rs.getTime("time");
 
-                data.add(new Activities(id,name,minAge,startTime,endTime,description));
+                data.add(new Activities(id,status,desription,date,user,address,time));
             }
 
         }
@@ -74,11 +77,12 @@ public class ActivityModel
         return data;
     }
 
-    public static void addActivity(String name, int age, String startTime, String endTIme, String description)
+    public static void addActivity(String status, String description, String date, String user, String address, String time)
     {
         try
         {
-            String Insert = "INSERT INTO activities (name, minAge, startTime, endTime,description) VALUES ('" + name + "',  " + age + ",'" + startTime + "', '" + endTIme + "', '" + description +"')";
+            // Status,description,date,user,address,time
+            String Insert = "INSERT INTO booking (status, description, date, user, address, time ) VALUES ('" + status + "',  " + description + ",'" + date + "', '" + user + "', '" + address + "', '" + time +"')";
 
             PreparedStatement pst = con.prepareStatement(Insert);
 
@@ -93,15 +97,15 @@ public class ActivityModel
 
     public static void selectActivity(Activities activities)
     {
-        int id = activities.getId();
+        int id = activities.getID();
         ResultSet rs;
         Statement stmt;
 
         try
         {
-            String insert = "SELECT * FROM activities WHERE id = '" + id + "'";
+            String insert = "SELECT * FROM booking WHERE id = '" + id + "'";
             stmt = con.createStatement();
-            stmt.executeQuery("SELECT * FROM activities");
+            stmt.executeQuery("SELECT * FROM booking");
             rs = stmt.getResultSet();
 
             //if (rs.next());
@@ -117,7 +121,7 @@ public class ActivityModel
 
         try
         {
-            String remove = "DELETE FROM activities WHERE id = " + id;
+            String remove = "DELETE FROM booking WHERE id = " + id;
 
             PreparedStatement pst = con.prepareStatement(remove);
             pst.executeUpdate();
@@ -136,21 +140,24 @@ public class ActivityModel
     public static void editActivity(Activities activities)
     {
 
-        int id = activities.getId();
-        String name = activities.getName();
-        int minAge = activities.getMinAge();
-        Time startTime = activities.getStartTime();
-        Time endTime = activities.getEndTime();
+        int userId = activities.getID();
+        String status = activities.getStatus();
         String description = activities.getDescription();
+        Date date = activities.getDate();
+        String user = activities.getFirstName();
+        user += activities.getLastName();
+        Time time = activities.getTime();
 
-        System.out.println(name + " " +  minAge + " " + startTime + " " + endTime + " " + description + " " + id);
 
-        String insert = "UPDATE activities SET name = '" + name +
-                "', minAge = '" + minAge +
-                "', startTime = '" + startTime +
-                "', endTime = '" + endTime +
+        System.out.println(status + " " +  description + " " + date + " " + user + " " + time);
+
+        // Status,description,date,user,address,time
+        String insert = "UPDATE activities SET status = '" + status +
                 "', description = '" + description +
-                "' WHERE id = " + id;
+                "', date = '" + date +
+                "', user = '" + user +
+                "', time = '" + time +
+                "' WHERE id = " + userId;
 
         //String insert = "UPDATE activities SET name = 'Sut' WHERE id = 2";
 

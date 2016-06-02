@@ -5,14 +5,16 @@ import javafx.scene.control.*;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.sql.Date;
+
 /**
  * Created by x on 15-5-2016.
  */
 public class ActivityCreateController
 {
-    public static void submitButton(String name, int minAge, String startTime,String endTime, String description)
+    public static void submitButton(String status, String description, String date, String user, String address, String time)
     {
-        ActivityModel.addActivity(name, minAge, startTime, endTime, description);
+        ActivityModel.addActivity(status, description, date, user, address, time);
     }
 
     public boolean validation(String name, String minAge,String description)
@@ -34,28 +36,35 @@ public class ActivityCreateController
 
         return check;
     }
-    public void confirm(TextField nameField, ComboBox startTimeBox, ComboBox endTimeBox, TextArea descriptionField, TextField minAgeField, Stage stage)
+
+    // status,description,date,user,address,time
+    public void confirm(TextField statusField, TextField descriptionField, Date dateField, TextField userField, TextField addressField, TextField timeField, Stage stage)
     {
         try{
             //Converting all of the fields to Strings
-            String name = nameField.getText();
-            String startTime = startTimeBox.getValue().toString();
-            String endTime = endTimeBox.getValue().toString();
+            String status = statusField.getText();
             String description = descriptionField.getText();
+            String date = dateField.toString();
+            String user = userField.getText();
+            String address = addressField.getText();
+            String time = timeField.toString();
+
+/*** TODO: Need to validate ...
 
             //Validating the fields to insure that no mistake has been made
             if(validation(name, minAgeField.getText(),description))
             {
                 int minAge = Integer.parseInt(minAgeField.getText());
 
-                ActivityCreateController.submitButton(name, minAge, startTime, endTime, description);
-                nameField.clear();
+                ActivityCreateController.submitButton(status, description, date, user, address, time);
+                statusField.clear();
                 minAgeField.clear();
                 descriptionField.clear();
                 startTimeBox.setValue("Start tid");
                 endTimeBox.setValue("Slut tid");
                 stage.close();
             }
+            */
         }
         catch(Exception e){
             System.err.println("Could not create user: " + e);

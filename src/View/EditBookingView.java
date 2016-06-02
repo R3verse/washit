@@ -61,7 +61,6 @@ public class EditBookingView
         Booking usedActivity = null;
         for(Booking a: dumbShit)
         {
-            //System.out.println(a.getId() +"  " + booking.getActivityID());
 
             if(a.getID() == booking.getID())
             {
@@ -77,7 +76,7 @@ public class EditBookingView
 
         //Never touch this please
         startTimeCBox.setItems(fukoff);
-        endTimeCBox.setItems(fukinn);
+
 
         ObservableList<Booking> arrSut = FXCollections.observableArrayList();
         arrSut.addAll(BookingModel.getInstance().getBookings());
@@ -117,7 +116,7 @@ public class EditBookingView
         pictureRegion.getChildren().add(imageView);
 
 
-        userCBox.setPromptText("Select Customer");
+        userCBox.setPromptText("Select User");
         userCBox.setMaxWidth(195);
         //If logged in as customer combobox is not available
         userCBox.setDisable(SessionModel.getInstance().getLoggedInUser().getRole() == UserRoleEnum.USER);
@@ -128,9 +127,9 @@ public class EditBookingView
 
         userCBox.getItems().addAll(UserModel.getInstance().getUserList());
 
-        numUsersCbox.setPromptText("Participants");
+        numUsersCbox.setPromptText("Status");
         numUsersCbox.setMaxWidth(195);
-        numUsersCbox.getItems().addAll(CreateBookingView.participants());
+        numUsersCbox.getItems().addAll(CreateBookingView.status());
         gridPane.add(numUsersCbox, 0, 2);
 
         activitiesCBox.setPromptText("Select Activity");
@@ -188,7 +187,7 @@ public class EditBookingView
                 //  booking.setStartTime(time.getValue());
                 //  booking.setEndTime(endTimeCBox.getValue());
                 int participants = Integer.parseInt(numUsersCbox.getValue().split(" ")[0]);
-                //  booking.setParticipants(participants);
+                //  booking.setParticipants(status);
                 BookingEditController.tryUpdate(booking);
                 stage.close();
                 System.out.println("Done");

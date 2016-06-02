@@ -22,8 +22,35 @@ public class BookingView {
     private TextField searchBookingName = new TextField();
     private TextField searchUserName = new TextField();
     private TextField searchDate = new TextField();
+    private TextField searchBookId = new TextField();
+
+    public TextField getSearchAddress() {
+        return searchAddress;
+    }
+
+    public TextField getSearchUserName() {
+        return searchUserName;
+    }
+
+    public TextField getSearchDate() {
+        return searchDate;
+    }
+
+    private TextField searchAddress = new TextField();
+
+    public static BookingView bookingView = null;
+
     TableView<Booking> bookingsTableView;
     private BookingViewController bookingViewController = new BookingViewController();
+
+    public static BookingView getInstance()
+    {
+        if(bookingView == null)
+        {
+            bookingView = new BookingView();
+        }
+        return bookingView;
+    }
 
     public BorderPane innerBorderPaneBookings()
     {
@@ -35,9 +62,11 @@ public class BookingView {
         ImageView imv = new ImageView();
         Image image = new Image(LoginView.class.getResourceAsStream("../img/MagnifierGlass.png"));
         imv.setImage(image);
+
+        // TextField bookId, TextField address
         imv.setOnMouseClicked(e->
         {
-            bookingViewController.search(bookingsTableView, searchBookingName, searchUserName, searchDate);
+            bookingViewController.search(bookingsTableView, searchBookingName, searchUserName, searchDate, searchBookId, searchAddress);
         });
 
         //Image Plussign

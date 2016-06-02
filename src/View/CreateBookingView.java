@@ -28,7 +28,7 @@ public class CreateBookingView
 
     public static TextField searchField = new TextField();
     public static ComboBox<User> userCBox;
-    public static ComboBox<String> numUsersCbox = new ComboBox<>();
+    public static TextField description = new TextField();
     public static ComboBox<Activities> activitiesCBox;
     public static ComboBox<Time> time;
     public static ComboBox<Time> endTimeCBox;
@@ -59,6 +59,7 @@ public class CreateBookingView
         gridPane.setPadding(new Insets(20,0,0,60));
         gridPane.setHgap(40);
         gridPane.setVgap(3);
+
 
         //Add image to
         // TODO: 02/03/2016 Man kan prøve at lave Canvas her, men kan ikke lige overskue
@@ -96,10 +97,9 @@ public class CreateBookingView
         //Using the list from DB and uses the toString method for displaying the object as fname + lname
         userCBox.getItems().addAll(UserModel.getInstance().getUserList());
 
-        numUsersCbox.setPromptText("Participants");
-        numUsersCbox.setMaxWidth(195);
-        numUsersCbox.getItems().addAll(participants());
-        gridPane.add(numUsersCbox, 1, 1);
+        description.setText(BookingView.getInstance().getSearchAddress().getText());
+        description.setMaxWidth(195);
+        gridPane.add(description, 1, 1);
 
 
         //Adding the acitvityBox
@@ -134,16 +134,10 @@ public class CreateBookingView
         activitiesCBox.valueProperty().addListener((observable, oldValue, newValue) ->
         {
             time.getItems().clear();
-            Time starTime = newValue.getStartTime();
+            Time starTime = newValue.getTime();
             time.getItems().addAll(starTime);
         });
 
-        activitiesCBox.valueProperty().addListener((observable, oldValue, newValue) ->
-        {
-            endTimeCBox.getItems().clear();
-            Time endTime = newValue.getEndTime();
-            endTimeCBox.getItems().addAll(endTime);
-        });
         searchField.setOnKeyReleased(e-> BookingCreateController.search(userCBox,searchField));
 
         bookBtn.setOnAction(e ->
@@ -162,7 +156,7 @@ public class CreateBookingView
 
 
                 convertMiliToHours();
-                int participant = Integer.parseInt(numUsersCbox.getValue().split(" ")[0]);
+               // int participant = Integer.parseInt(numUsersCbox.getValue().split(" ")[0]);
                 Booking book = new Booking(selectedUser.getID(), date, time.getValue());
 
                 BookingCreateController.tryInsert(book);
@@ -201,19 +195,14 @@ public class CreateBookingView
         return duration;
     }
 
-    protected static List<String> participants()
+    protected static List<String> status()
     {
-        List<String> numOfPeople = new ArrayList<>();
-        int counter = 1;
+        List<String> status = new ArrayList<>();
 
-        numOfPeople.add(counter + " Person");
+        status.add("Afhentet");
+        status.add("Leveret");
 
-        for(int i = 1; i < 20; i++)
-        {
-            numOfPeople.add(counter + " Persons");
-            counter++;
-        }
-        return numOfPeople;
+        return status;
     }
 
 }

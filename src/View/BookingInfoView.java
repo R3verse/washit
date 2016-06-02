@@ -35,10 +35,33 @@ public class BookingInfoView
         stage.show();
     }
 
+    // TODO: Status,description,date,user,address,time
     public GridPane info(Activities activities)
     {
         GridPane gridPane = new GridPane();
         //Name
+
+        Label status = new Label("Status");
+        Text statusText = new Text();
+
+        Label description = new Label("Description");
+        Text descriptionText = new Text();
+
+        Label date = new Label("Date");
+        Text dateText = new Text();
+
+        Label user = new Label("User");
+        Text userText = new Text();
+
+        Label address = new Label("Address");
+        Text addressText = new Text();
+
+        Label time = new Label("Time");
+        Text timeText = new Text();
+
+
+
+       /*
         Label nameLabel = new Label("Activity Name: ");
         Text activityName = new Text();
         //Age
@@ -52,10 +75,13 @@ public class BookingInfoView
         Text stopTime = new Text();
         //Description
         Label descriptionLabel = new Label("Description: ");
+
+
+        */
         TextArea descriptionArea = new TextArea();
 
         //Insert values into textfields
-        bookingViewInfoController.fillFields(activities,activityName,activityAge,startTime,stopTime,descriptionArea);
+       // bookingViewInfoController.fillFields(activities,activityName,activityAge,startTime,stopTime,descriptionArea);
 
         ////Disabling the area, so you are not able to edit it a a user.
         descriptionArea.setStyle("-fx-background-color: black");
@@ -71,16 +97,15 @@ public class BookingInfoView
         gridPane.setStyle("-fx-background-color: linear-gradient(white 80%, #dda200 100%)");
 
         //Setting up the GridPane, so it looks nice n' shiny
-        gridPane.add(nameLabel, 0, 0);
-        gridPane.add(activityName, 1, 0);
-        gridPane.add(ageLabel, 0, 1);
-        gridPane.add(activityAge, 1, 1);
-        gridPane.add(startTimeLabel, 0, 2);
-        gridPane.add(startTime, 1, 2);
-        gridPane.add(stopTimeLabel, 0, 3);
-        gridPane.add(stopTime, 1, 3);
-        gridPane.add(descriptionLabel, 0, 4);
-        gridPane.add(descriptionArea, 0, 5, 2, 1);
+
+// TODO: Status,description,date,user,address,time
+        gridPane.add(status, 0, 0);
+        gridPane.add(description, 1, 0);
+        gridPane.add(date, 0, 1);
+        gridPane.add(user, 1, 1);
+        gridPane.add(address, 0, 2);
+        gridPane.add(time, 1, 2);
+        gridPane.add(descriptionArea, 0, 4, 2, 1);
 
         return gridPane;
     }
