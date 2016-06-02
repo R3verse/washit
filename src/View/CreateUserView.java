@@ -60,9 +60,9 @@ public class CreateUserView
         //Add image
         ImageView imv = new ImageView();
         Image image2 = new Image(LoginView.class.getResourceAsStream("../img/Washa3.png"));
-        imv.setImage(image2);
-        imv.setFitWidth(220);
+        imv.setFitWidth(210);
         imv.setFitHeight(70);
+        imv.setImage(image2);
         HBox pictureRegion = new HBox();
         pictureRegion.setPadding(new Insets(0, 0, 20, 0));
         pictureRegion.getChildren().add(imv);
@@ -95,7 +95,9 @@ public class CreateUserView
 
         emailField = new TextField();
         gridPane.add(emailField,1,3);
+        emailField.setPromptText("example@email.com");
         emailField.setText(emailField.getText());
+
 
 
         Label addressLbl = new Label("Address:");
@@ -120,7 +122,7 @@ public class CreateUserView
         gridPane.add(passwordField, 1, 6);
         passwordField.setText(passwordField.getText());
 
-        Label subscriptionLabel = new Label("Subscription:");
+        Label subscriptionLabel = new Label("Sub Type:");
         gridPane.add(subscriptionLabel, 0, 7);
 
         subscriptionField = new TextField();
@@ -178,7 +180,7 @@ public class CreateUserView
 
 
         Button backBtn = new Button("Go back");
-        backBtn.setPrefWidth(100);
+        backBtn.setPrefWidth(115);
         gridPane.add(backBtn, 0, 12);
 
         backBtn.setOnAction(event ->{
@@ -189,8 +191,8 @@ public class CreateUserView
         gridPane.add(submitBtn, 1, 12);
         submitBtn.setPrefWidth(190);
 
+
         Button closeBtn = new Button("Close");
-        closeBtn.setPrefWidth(100);
         gridPane.add(closeBtn, 2, 12);
         closeBtn.setPrefWidth(100);
 
@@ -217,8 +219,6 @@ public class CreateUserView
         }
             else
             {
-
-// String fName, String lName, String email, String address, String phone, int type, String subscriptionType
                 new UserCreateController().createUser(
                         firstNameField.getText(),
                         lastNameField.getText(),

@@ -68,8 +68,8 @@ public class EditUserView{
         //Add image
         ImageView imv = new ImageView();
         Image image2 = new Image(LoginView.class.getResourceAsStream("../img/Washa3.png"));
-        imv.setFitHeight(70);
         imv.setFitWidth(210);
+        imv.setFitHeight(70);
         imv.setImage(image2);
         HBox pictureRegion = new HBox();
         pictureRegion.setPadding(new Insets(0, 0, 20, 0));
@@ -103,6 +103,7 @@ public class EditUserView{
 
         emailField = new TextField();
         gridPane.add(emailField,1,3);
+        emailField.setPromptText("example@email.com");
         emailField.setText(user.getEMail());
 
 

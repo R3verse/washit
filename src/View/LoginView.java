@@ -52,6 +52,7 @@ public class LoginView extends Application
 
         SceneSwitchHelper.setPrimaryStage(primaryStage);
         borderPane = getBorderPane();
+        borderPane.setStyle("-fx-background-color: linear-gradient(white 25%, darkcyan 100%)");
         scene = new Scene(borderPane, 420, 340);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Login");
