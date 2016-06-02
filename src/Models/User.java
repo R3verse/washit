@@ -1,9 +1,7 @@
 package Models;
 
-import java.util.Date;
-
 /**
- * Created by x on 12/5/16.
+ * Gruppeaflevering: Max, Memet & Thomas - Washa
  */
 public class User {
 
@@ -11,21 +9,42 @@ public class User {
     private String firstName;
     private String lastName;
     private String eMail;
+
+    private String password;
     private String address;
     private int telephoneNumber;
-    private Date birthday;
+
+    private String subscriptionType;
     private UserRoleEnum role;
 
-    public User(String firstName, String lastName, String eMail, String address, int ID, int telephoneNumber, UserRoleEnum role)
+    // ID, fName, lName, eMail, password, addr, subscription, tlfPhNr, role
+    public User(int ID, String firstName, String lastName, String eMail, String password, String address, String subscriptionType, int telephoneNumber, UserRoleEnum role)
     {
         this.firstName = firstName;
         this.lastName = lastName;
         this.eMail = eMail;
+        this.password = password;
         this.address = address;
         this.ID = ID;
         this.telephoneNumber = telephoneNumber;
+        this.subscriptionType = subscriptionType;
         this.role = role;
-        this.birthday = birthday;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getSubscriptionType() {
+        return subscriptionType;
+    }
+
+    public void setSubscriptionType(String subscriptionType) {
+        this.subscriptionType = subscriptionType;
     }
 
     public String getFirstName() {
@@ -56,10 +75,6 @@ public class User {
         return role;
     }
 
-    public Date getBirthday() {
-        return birthday;
-    }
-
     public String getUserName(){
         return firstName + " " + lastName;
     }
@@ -86,10 +101,6 @@ public class User {
 
     public void setTelephoneNumber(int telephoneNumber){
         this.telephoneNumber = telephoneNumber;
-    }
-
-    public void setBirthday(Date birthday){
-        this.birthday = birthday;
     }
 
     public void setRole(UserRoleEnum role){

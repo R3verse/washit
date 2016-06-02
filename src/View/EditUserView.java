@@ -27,10 +27,11 @@ public class EditUserView{
     private TextField firstNameField;
     private TextField lastNameField;
     private TextField emailField;
-    private TextField addressField;
     private TextField phoneNumberField;
 
-    private DatePicker birthdayPicker;
+    private TextField passwordField;
+    private TextField addressField;
+    private TextField subscriptionField;
 
     private RadioButton employeeRadioBtn;
     private RadioButton customerRadioBtn;
@@ -62,11 +63,13 @@ public class EditUserView{
 
         borderPane.setStyle("-fx-background-color: white");
 
-        borderPane.setStyle("-fx-background-color: linear-gradient(white 80%, #DD5100 100%)");
+        borderPane.setStyle("-fx-background-color: linear-gradient(white 25%, darkcyan 100%)");
 
         //Add image
         ImageView imv = new ImageView();
-        Image image2 = new Image(LoginView.class.getResourceAsStream("../img/adventure.png"));
+        Image image2 = new Image(LoginView.class.getResourceAsStream("../img/Washa3.png"));
+        imv.setFitHeight(70);
+        imv.setFitWidth(210);
         imv.setImage(image2);
         HBox pictureRegion = new HBox();
         pictureRegion.setPadding(new Insets(0, 0, 20, 0));
@@ -118,26 +121,19 @@ public class EditUserView{
         phoneNumberField.setPromptText("12345678");
         phoneNumberField.setText(user.getTelephoneNumber()+"");
 
-        Label birthdayLbl = new Label("Birthday:");
-        gridPane.add(birthdayLbl, 0, 6);
+        Label passwordLabel = new Label("Password:");
+        gridPane.add(passwordLabel, 0, 6);
 
-        birthdayPicker = new DatePicker();
-        gridPane.add(birthdayPicker, 1, 6);
+        passwordField = new TextField();
+        gridPane.add(passwordField, 1, 6);
+        passwordField.setText(user.getPassword());
 
-        Date date = null;
-        try{
-            System.out.println(user.getBirthday().toString());
-            java.util.Date utilDate = new SimpleDateFormat("yyyy-MM-dd").parse(user.getBirthday().toString());
+        Label subscriptionLabel = new Label("Subscription:");
+        gridPane.add(subscriptionLabel, 0, 7);
 
-            date = new Date(utilDate.getTime());
-
-            date = new java.sql.Date(utilDate.getTime());
-
-            birthdayPicker.setValue(date.toLocalDate());
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-
+        subscriptionField = new TextField();
+        gridPane.add(subscriptionField, 1, 7);
+        subscriptionField.setText(user.getSubscriptionType());
 
 
         ToggleGroup group = new ToggleGroup();
@@ -145,12 +141,12 @@ public class EditUserView{
         employeeRadioBtn = new RadioButton("Employee");
         employeeRadioBtn.setToggleGroup(group);
 
-        gridPane.add(employeeRadioBtn, 1, 8);
+        gridPane.add(employeeRadioBtn, 1, 9);
 
         customerRadioBtn = new RadioButton("Costumer");
         customerRadioBtn.setToggleGroup(group);
 
-        gridPane.add(customerRadioBtn, 1, 9);
+        gridPane.add(customerRadioBtn, 1, 10);
 
         adminRadioBtn = new RadioButton("Admin");
         adminRadioBtn.setToggleGroup(group);
@@ -168,7 +164,7 @@ public class EditUserView{
         group.selectToggle(adminRadioBtn);
         }else{}
 
-        gridPane.add(adminRadioBtn, 1, 10);
+        gridPane.add(adminRadioBtn, 1, 11);
 
 
         if(!session.isGuest() && SessionModel.getInstance().getLoggedInUser().getRole() == UserRoleEnum.Driver)
@@ -194,6 +190,7 @@ public class EditUserView{
             user.setFirstName(firstNameField.getText());
             user.setLastName(lastNameField.getText());
             user.seteMail(emailField.getText());
+            user.setPassword(passwordField.getText());
             user.setAddress(addressField.getText());
             user.setTelephoneNumber(Integer.parseInt(phoneNumberField.getText()));
 
@@ -209,24 +206,14 @@ public class EditUserView{
             }
             user.setRole(uRE);
             UserEditController uEC = new UserEditController();
-            Date date2 = null;
 
             try{
-                System.out.println(user.getBirthday().toString());
-                java.util.Date utilDate = new SimpleDateFormat("yyyy-MM-dd").parse(birthdayPicker.getValue().toString());
-
-                date2 = new Date(utilDate.getTime());
-
-                date2 = new java.sql.Date(utilDate.getTime());
-
-            user.setBirthday(date2);
-
 
             if(uEC.tryUpdate(user)){
                 stage.close();
             }
             }catch(Exception e2){
-                System.err.println("Couldn't parse date: " + e2);
+                System.err.println("Couldn't parse: " + e2);
                 uEC.setAlert("Error","Couldn't parse date correctly!");
             }
         });

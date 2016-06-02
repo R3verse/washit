@@ -86,24 +86,24 @@ public class BookingViewController {
         List<Booking> bookings = BookingModel.getInstance().getBookings();
         List<Booking> bookingSearch = new ArrayList<>();
 
-        String searchActivityName = name.getText();
+        String searchBookingDescription = name.getText();
         String searchUserName = user.getText();
 
         for (Booking b : bookings)
 
         {
 
-            if (searchActivityName.length() != 0 && searchUserName.length() != 0)
+            if (searchBookingDescription.length() != 0 && searchUserName.length() != 0)
             {
-                /*
+
                 if (b.getUserName().toLowerCase().contains(searchUserName.toLowerCase()) &&
-                      b.getActivityName().toLowerCase().contains(searchActivityName.toLowerCase()))
+                      b.getDescription().toLowerCase().contains(searchBookingDescription.toLowerCase()))
                 {
                     bookingSearch.add(b);
                 }
-                */
+
             }
-            else if(searchActivityName.length()==0 && searchUserName.length()!=0)
+            else if(searchBookingDescription.length()==0 && searchUserName.length()!=0)
             {
                 if(b.getUserName().toLowerCase().contains(searchUserName.toLowerCase()))
                 {
@@ -111,9 +111,9 @@ public class BookingViewController {
                 }
             }
 
-            else if(searchActivityName.length()!=0 && searchUserName.length()==0)
+            else if(searchBookingDescription.length()!=0 && searchUserName.length()==0)
             {
-                //   if(b.getActivityName().toLowerCase().contains(searchActivityName.toLowerCase()))
+                //   if(b.getActivityName().toLowerCase().contains(searchBookingDescription.toLowerCase()))
                 {
                     bookingSearch.add(b);
                 }

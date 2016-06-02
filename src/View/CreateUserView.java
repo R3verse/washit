@@ -22,10 +22,11 @@ public class CreateUserView
     private TextField firstNameField;
     private TextField lastNameField;
     private TextField emailField;
-    private TextField addressField;
     private TextField phoneNumberField;
 
-    private DatePicker birthdayPicker;
+    private TextField passwordField;
+    private TextField addressField;
+    private TextField subscriptionField;
 
     private RadioButton employeeRadioBtn;
     private RadioButton customerRadioBtn;
@@ -76,6 +77,7 @@ public class CreateUserView
 
         firstNameField = new TextField();
         gridPane.add(firstNameField, 1, 1);
+        firstNameField.setText(firstNameField.getText());
 
 
         Label lastNameLbl = new Label("Lastname:");
@@ -84,6 +86,7 @@ public class CreateUserView
 
         lastNameField = new TextField();
         gridPane.add(lastNameField,1, 2);
+        lastNameField.setText(lastNameField.getText());
 
 
         Label emailLbl = new Label("Email:");
@@ -92,6 +95,7 @@ public class CreateUserView
 
         emailField = new TextField();
         gridPane.add(emailField,1,3);
+        emailField.setText(emailField.getText());
 
 
         Label addressLbl = new Label("Address:");
@@ -99,6 +103,7 @@ public class CreateUserView
 
         addressField = new TextField();
         gridPane.add(addressField, 1, 4);
+        addressField.setText(addressField.getText());
 
         Label phoneNumberLbl = new Label("Phone nr.");
         gridPane.add(phoneNumberLbl, 0, 5);
@@ -106,29 +111,52 @@ public class CreateUserView
         phoneNumberField = new TextField();
         gridPane.add(phoneNumberField, 1, 5);
         phoneNumberField.setPromptText("12345678");
+        phoneNumberField.setText(phoneNumberField.getText()+"");
 
-       // Label birthdayLbl = new Label("Birthday:");
-       // gridPane.add(birthdayLbl, 0, 6);
+        Label passwordLabel = new Label("Password:");
+        gridPane.add(passwordLabel, 0, 6);
 
-      //  birthdayPicker = new DatePicker();
-      //  gridPane.add(birthdayPicker, 1, 6);
+        passwordField = new TextField();
+        gridPane.add(passwordField, 1, 6);
+        passwordField.setText(passwordField.getText());
+
+        Label subscriptionLabel = new Label("Subscription:");
+        gridPane.add(subscriptionLabel, 0, 7);
+
+        subscriptionField = new TextField();
+        gridPane.add(subscriptionField, 1, 7);
+        subscriptionField.setText(subscriptionField.getText());
+
 
         ToggleGroup group = new ToggleGroup();
 
-        employeeRadioBtn = new RadioButton("Driver");
+        employeeRadioBtn = new RadioButton("Employee");
         employeeRadioBtn.setToggleGroup(group);
 
-        gridPane.add(employeeRadioBtn, 1, 8);
+        gridPane.add(employeeRadioBtn, 1, 9);
 
-        customerRadioBtn = new RadioButton("Customer");
+        customerRadioBtn = new RadioButton("Costumer");
         customerRadioBtn.setToggleGroup(group);
 
-        gridPane.add(customerRadioBtn, 1, 9);
+        gridPane.add(customerRadioBtn, 1, 10);
 
         adminRadioBtn = new RadioButton("Admin");
         adminRadioBtn.setToggleGroup(group);
 
-        gridPane.add(adminRadioBtn, 1, 10);
+        if(SessionModel.getInstance().getLoggedInUser().getRole().toString().equalsIgnoreCase("USER"))
+        {
+            group.selectToggle(customerRadioBtn);
+        }
+        else if(SessionModel.getInstance().getLoggedInUser().getRole().toString().equalsIgnoreCase("Driver"))
+        {
+            group.selectToggle(employeeRadioBtn);
+        }
+        else if(SessionModel.getInstance().getLoggedInUser().getRole().toString().equalsIgnoreCase("ADMIN"))
+        {
+            group.selectToggle(adminRadioBtn);
+        }else{}
+
+        gridPane.add(adminRadioBtn, 1, 11);
 
         if(!session.isGuest() && session.getLoggedInUser().getRole() == UserRoleEnum.ADMIN){
         employeeRadioBtn.setVisible(true);
@@ -190,14 +218,15 @@ public class CreateUserView
             else
             {
 
-
+// String fName, String lName, String email, String address, String phone, int type, String subscriptionType
                 new UserCreateController().createUser(
                         firstNameField.getText(),
                         lastNameField.getText(),
                         emailField.getText(),
                         addressField.getText(),
                         phoneNumberField.getText(),
-                        getRadioBtnValues(session.getIsGuest())//getUserNumber()
+                        getRadioBtnValues(session.getIsGuest()),//getUserNumber()
+                        subscriptionField.getText()
                 );
 
             }

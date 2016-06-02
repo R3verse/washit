@@ -1,6 +1,5 @@
 package Models;
 import java.sql.*;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -66,18 +65,23 @@ public class UserModel {
                 String fName = rs.getString("firstName");
                 String lName = rs.getString("lastName");
                 String eMail = rs.getString("eMail");
-                String addr = rs.getString("address");
-                int ID = rs.getInt("ID");
+                String password = rs.getString("password");
                 UserRoleEnum role = getRole(rs.getInt("role"));
-                int tlfPhNr = rs.getInt("telephoneNumber");
+                String addr = rs.getString("address");
+                int phoneNo = rs.getInt("telephoneNumber");
+                String subscription = rs.getString("subscriptionType");
+                int ID = rs.getInt("ID");
+
                 // User(String firstName, String lastName, String eMail,
-                // String address, int ID, int telephoneNumber, boolean isAdmin, Date birthday)
-                listReturn.add(new User(fName,
+                // ID, fName, lName, eMail, password, addr, subscription, tlfPhNr, role
+                listReturn.add(new User(ID,
+                        fName,
                         lName,
                         eMail,
+                        password,
                         addr,
-                        ID,
-                        tlfPhNr,
+                        subscription,
+                        phoneNo,
                         role
                 ));
             }
@@ -118,11 +122,15 @@ public class UserModel {
                 String fName = rs.getString("firstName");
                 String lName = rs.getString("lastName");
                 String eMail = rs.getString("eMail");
+                String password = rs.getString("password");
                 String addr = rs.getString("address");
+                String subscription = rs.getString("subscriptionType");
                 int ID = rs.getInt("ID");
-                              UserRoleEnum role = getRole(rs.getInt("role"));
+                UserRoleEnum role = getRole(rs.getInt("role"));
                 int tlfPhNr = rs.getInt("telephoneNumber");
-                userReturn = new User(fName, lName, eMail, addr, ID, tlfPhNr, role);
+
+
+                userReturn = new User(ID, fName, lName, eMail, password, addr, subscription, tlfPhNr, role);
             }
         } catch (SQLException eSQL) {
             eSQL.printStackTrace();
@@ -154,11 +162,11 @@ public class UserModel {
 
     }
 
-    public void createUser(String firstName, String lastName, String eMail, String address, int telephoneNo, int role, String passWord) {
+    public void createUser(String firstName, String lastName, String eMail, String address, int telephoneNo, int role, String subcriptionType, String passWord) {
         try {
             Statement st = con.createStatement();
-            st.executeUpdate("INSERT INTO users(firstName, lastName, eMail, address, telephoneNumber, role, password)" +
-                    "VALUES ('" + firstName + "', '" + lastName + "', '" + eMail + "', '" + address + "', '" + telephoneNo + "', '" + role + "', '" + passWord + "')");
+            st.executeUpdate("INSERT INTO users(firstName, lastName, email, address, telephoneNumber, subscriptionType, role, password)" +
+                    "VALUES ('" + firstName + "', '" + lastName + "', '" + eMail + "', '" + address + "', '" + telephoneNo + "', '" + role + "', '" + subcriptionType + "', '" + passWord + "')");
 
             System.out.println("Inserted user into database");
         } catch (SQLException e) {
@@ -211,7 +219,9 @@ public class UserModel {
             String firstName = user.getFirstName();
             String lastName = user.getLastName();
             String email = user.getEMail();
-            String adress = user.getAddress();
+            String address = user.getAddress();
+            String password = user.getPassword();
+            String subscriptionType = user.getSubscriptionType();
             int telephoneNumber = user.getTelephoneNumber();
             int role = user.getRole().getRole();
             String query =
@@ -222,16 +232,20 @@ public class UserModel {
                             "`eMail`=?," +
                             "`address`=?," +
                             "`telephoneNumber`=?," +
+                            "`password`=?, " +
+                            "`subscriptionType`=?, " +
                             "`role`=?, " +
                             "WHERE id = ?";
             PreparedStatement stmt = con.prepareStatement(query);
             stmt.setString(1, firstName);
-            stmt.setString(2, lastName);
-            stmt.setString(3, email);
-            stmt.setString(4, adress);
-            stmt.setInt(5, telephoneNumber);
-            stmt.setInt(6,role);
-            stmt.setInt(7,userId);
+            stmt.setString(2, email);
+            stmt.setString(3, password);
+            stmt.setInt(4,role);
+            stmt.setString(5, address);
+            stmt.setInt(6, telephoneNumber);
+            stmt.setString(7, subscriptionType);
+            stmt.setString(8, lastName);
+            stmt.setInt(9,userId);
 
 
             stmt.execute();

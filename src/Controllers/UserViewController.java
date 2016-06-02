@@ -27,23 +27,32 @@ public class UserViewController{
         TableColumn idColumns = new TableColumn("Id");
         idColumns.setCellValueFactory(new PropertyValueFactory<>("ID"));
 
+        TableColumn usernameColumn = new TableColumn("User");
+        usernameColumn.setCellValueFactory(new PropertyValueFactory<>("userName"));
+
         TableColumn eMailColumn = new TableColumn("Email");
         eMailColumn.setCellValueFactory(new PropertyValueFactory<>("eMail"));
 
-        TableColumn userIdColumn = new TableColumn("User");
-        userIdColumn.setCellValueFactory(new PropertyValueFactory<>("userName"));
-
-        TableColumn phoneColumn = new TableColumn("Phone Number");
-        phoneColumn.setCellValueFactory(new PropertyValueFactory<>("telephoneNumber"));
-
-        TableColumn bDayColumn = new TableColumn("Birthday");
-        bDayColumn.setCellValueFactory(new PropertyValueFactory<>("Birthday"));
+        TableColumn passwordIdColumn = new TableColumn("Password");
+        passwordIdColumn.setCellValueFactory(new PropertyValueFactory<>("password"));
 
         TableColumn roleColumn = new TableColumn("Role");
         roleColumn.setCellValueFactory(new PropertyValueFactory<>("role"));
 
+        TableColumn addressColumn = new TableColumn("Address");
+        addressColumn.setCellValueFactory(new PropertyValueFactory<>("address"));
 
-        tableView.getColumns().addAll(idColumns, eMailColumn, userIdColumn, phoneColumn,bDayColumn,roleColumn);
+        TableColumn phoneColumn = new TableColumn("PhoneNo");
+        phoneColumn.setCellValueFactory(new PropertyValueFactory<>("telephoneNumber"));
+
+        TableColumn subscriptionColumn = new TableColumn("Subscription");
+        subscriptionColumn.setCellValueFactory(new PropertyValueFactory<>("subscriptionType"));
+
+
+
+
+
+        tableView.getColumns().addAll(idColumns, usernameColumn, eMailColumn, passwordIdColumn, roleColumn, addressColumn, phoneColumn, subscriptionColumn);
 
         tableView.setItems(setUsers());
     }

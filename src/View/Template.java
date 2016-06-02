@@ -30,7 +30,8 @@ public class Template extends Application
     }
     public static void main(String[] args)
     {
-        SessionModel.getInstance().setUserSession(new User("asdf","sasdf","asdf","ADSFA",1337,80085, UserRoleEnum.ADMIN));
+        // ID, fName, lName, eMail, password, addr, subscription, tlfPhNr, role
+        SessionModel.getInstance().setUserSession(new User(213, "asdf","sasdf","asdf","ADSFA","adwd","awdwdw", 2332, UserRoleEnum.ADMIN));
         launch(args);
     }
 

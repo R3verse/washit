@@ -18,7 +18,7 @@ public class UserCreateController
 
     }
 
-    public void createUser(String fName, String lName, String email, String address, String phone, int type)
+    public void createUser(String fName, String lName, String email, String address, String phone, int type, String subscriptionType)
     {
         int phoneNo = -1;
         boolean failed = false;
@@ -50,10 +50,10 @@ public class UserCreateController
                     // show popup
                 }
                 else {
-                    // TODO: 25-02-2016 1234 er standardkode, skal laves om
                     try {
                         if (!UserModel.getInstance().doesUserExsists(email)) {
-                            UserModel.getInstance().createUser(fName, lName, email, address, phoneNo, type, "1234");
+
+                            UserModel.getInstance().createUser(fName, lName, email, address, phoneNo, type, subscriptionType, "1234");
                             setAlert("Success!", "User was successfully created!", "Username: " + email + "\nPassword: 1234");
                             System.out.println("Success");
                         } else {
