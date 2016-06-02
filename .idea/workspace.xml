@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f7250947-3718-483d-ae8e-2fce76b69005" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/View/Template.java" afterPath="$PROJECT_DIR$/src/View/Template.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/View/CreateUserView.java" afterPath="$PROJECT_DIR$/src/View/CreateUserView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/View/EditUserView.java" afterPath="$PROJECT_DIR$/src/View/EditUserView.java" />
     </list>
     <ignored path="Washit.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -48,28 +49,28 @@
       <file leaf-file-name="EditUserView.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/View/EditUserView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="68.51724">
-              <caret line="95" column="41" selection-start-line="95" selection-start-column="41" selection-end-line="95" selection-end-column="41" />
+            <state vertical-scroll-proportion="5.793103">
+              <caret line="130" column="0" selection-start-line="130" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CreateUserView.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CreateUserView.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/View/CreateUserView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="84.93104">
-              <caret line="97" column="8" selection-start-line="97" selection-start-column="8" selection-end-line="97" selection-end-column="54" />
+            <state vertical-scroll-proportion="-1.3345817">
+              <caret line="104" column="0" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Template.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Template.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/View/Template.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.24578314">
-              <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="40" column="32" selection-start-line="40" selection-start-column="32" selection-end-line="40" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -173,9 +174,9 @@
         <option value="$PROJECT_DIR$/src/Controllers/UserCreateController.java" />
         <option value="$PROJECT_DIR$/src/Controllers/UserViewController.java" />
         <option value="$PROJECT_DIR$/src/View/LoginView.java" />
+        <option value="$PROJECT_DIR$/src/View/Template.java" />
         <option value="$PROJECT_DIR$/src/View/CreateUserView.java" />
         <option value="$PROJECT_DIR$/src/View/EditUserView.java" />
-        <option value="$PROJECT_DIR$/src/View/Template.java" />
       </list>
     </option>
   </component>
@@ -817,12 +818,12 @@
       <updated>1464001321859</updated>
       <workItem from="1464772371844" duration="3020000" />
       <workItem from="1464783827637" duration="11168000" />
-      <workItem from="1464845576738" duration="10207000" />
+      <workItem from="1464845576738" duration="11701000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24395000" />
+    <option name="totallyTimeSpent" value="25889000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1348,18 +1349,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/CreateUserView.java">
+    <entry file="file://$PROJECT_DIR$/src/Controllers/UserLoginController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="84.93104">
-          <caret line="97" column="8" selection-start-line="97" selection-start-column="8" selection-end-line="97" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/EditUserView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="68.51724">
-          <caret line="95" column="41" selection-start-line="95" selection-start-column="41" selection-end-line="95" selection-end-column="41" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="32" column="50" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="50" />
           <folding />
         </state>
       </provider>
@@ -1372,18 +1365,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/UserLoginController.java">
+    <entry file="file://$PROJECT_DIR$/src/View/Template.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="32" column="50" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="50" />
+          <caret line="40" column="32" selection-start-line="40" selection-start-column="32" selection-end-line="40" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/Template.java">
+    <entry file="file://$PROJECT_DIR$/src/View/EditUserView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24578314">
-          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+        <state vertical-scroll-proportion="5.793103">
+          <caret line="130" column="0" selection-start-line="130" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/CreateUserView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.3345817">
+          <caret line="104" column="0" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
           <folding />
         </state>
       </provider>

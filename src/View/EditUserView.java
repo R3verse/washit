@@ -134,6 +134,7 @@ public class EditUserView{
 
         subscriptionField = new TextField();
         gridPane.add(subscriptionField, 1, 7);
+        subscriptionField.setPromptText("Small/Medium/Large");
         subscriptionField.setText(user.getSubscriptionType());
 
 

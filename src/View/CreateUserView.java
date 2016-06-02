@@ -122,11 +122,12 @@ public class CreateUserView
         gridPane.add(passwordField, 1, 6);
         passwordField.setText(passwordField.getText());
 
-        Label subscriptionLabel = new Label("Sub Type:");
+        Label subscriptionLabel = new Label("Subscription:");
         gridPane.add(subscriptionLabel, 0, 7);
 
         subscriptionField = new TextField();
         gridPane.add(subscriptionField, 1, 7);
+        subscriptionField.setPromptText("Small/Medium/Large");
         subscriptionField.setText(subscriptionField.getText());
 
 
@@ -178,31 +179,10 @@ public class CreateUserView
         }
 
 
-
-        Button backBtn = new Button("Go back");
-        backBtn.setPrefWidth(115);
-        gridPane.add(backBtn, 0, 12);
-
-        backBtn.setOnAction(event ->{
-            SceneSwitchHelper.setScene(new LoginView().getBorderPane(), 420, 340, "Login");
-        });
-
         Button submitBtn = new Button("Submit");
         gridPane.add(submitBtn, 1, 12);
         submitBtn.setPrefWidth(190);
 
-
-        Button closeBtn = new Button("Close");
-        gridPane.add(closeBtn, 2, 12);
-        closeBtn.setPrefWidth(100);
-
-        closeBtn.setOnAction(event -> {
-            if(SceneSwitchHelper.getPrimaryStage().isShowing()){
-                SceneSwitchHelper.getPrimaryStage().close();
-            }else{
-                stage.close();
-            }
-        });
 
         submitBtn.setOnAction(e ->
         {
