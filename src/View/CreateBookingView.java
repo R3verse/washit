@@ -30,7 +30,7 @@ public class CreateBookingView
     public static ComboBox<User> userCBox;
     public static ComboBox<String> numUsersCbox = new ComboBox<>();
     public static ComboBox<Activities> activitiesCBox;
-    public static ComboBox<Time> startTimeCBox;
+    public static ComboBox<Time> time;
     public static ComboBox<Time> endTimeCBox;
     public static DatePicker datePicker;
     public static CreateBookingView booking = null;
@@ -113,10 +113,10 @@ public class CreateBookingView
         //Adding the InfoButton beside the activityBox
         gridPane.add(infoImageForActivities, 2, 2);
 
-        startTimeCBox = new ComboBox<>();
-        startTimeCBox.setPromptText("Activity Starts ");
-        startTimeCBox.setMinWidth(140);
-        gridPane.add(startTimeCBox, 1, 5);
+        time = new ComboBox<>();
+        time.setPromptText("Activity Starts ");
+        time.setMinWidth(140);
+        gridPane.add(time, 1, 5);
 
         endTimeCBox = new ComboBox<>();
         endTimeCBox.setPromptText("Activity Ends   ");
@@ -133,9 +133,9 @@ public class CreateBookingView
         //Hack to avoid toString...
         activitiesCBox.valueProperty().addListener((observable, oldValue, newValue) ->
         {
-            startTimeCBox.getItems().clear();
+            time.getItems().clear();
             Time starTime = newValue.getStartTime();
-            startTimeCBox.getItems().addAll(starTime);
+            time.getItems().addAll(starTime);
         });
 
         activitiesCBox.valueProperty().addListener((observable, oldValue, newValue) ->
@@ -160,9 +160,10 @@ public class CreateBookingView
 
                 date = new java.sql.Date(utilDate.getTime());
 
+
                 convertMiliToHours();
                 int participant = Integer.parseInt(numUsersCbox.getValue().split(" ")[0]);
-                Booking book = new Booking(selectedUser.getID(), date);
+                Booking book = new Booking(selectedUser.getID(), date, time.getValue());
 
                 BookingCreateController.tryInsert(book);
                 stage.close();
@@ -184,8 +185,8 @@ public class CreateBookingView
     {
         String duration;
 
-        System.out.println(startTimeCBox.getValue());
-        long startTime = startTimeCBox.getValue().getTime();
+        System.out.println(time.getValue());
+        long startTime = time.getValue().getTime();
         long endTime = endTimeCBox.getValue().getTime();
 
         long timeDuration = (endTime - startTime);

@@ -53,6 +53,9 @@ public class BookingViewController {
         TableColumn idColumns = new TableColumn("Id");
         idColumns.setCellValueFactory(new PropertyValueFactory<>("ID"));
 
+        TableColumn nameColumn = new TableColumn("Name");
+        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+
         TableColumn status = new TableColumn("Status");
         status.setCellValueFactory(new PropertyValueFactory<>("status"));
 
@@ -62,11 +65,18 @@ public class BookingViewController {
         TableColumn dateColumn = new TableColumn("Date");
         dateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
 
+        TableColumn userIdColumn = new TableColumn("User");
+        userIdColumn.setCellValueFactory(new PropertyValueFactory<>("userName"));
+
         TableColumn address = new TableColumn("Address");
         address.setCellValueFactory(new PropertyValueFactory<>("address"));
 
+        TableColumn timeColumn = new TableColumn("Time");
+        timeColumn.setCellValueFactory(new PropertyValueFactory<>("time"));
+
+
         tableView.getColumns().addAll(idColumns, status, description,
-                dateColumn, address);
+                dateColumn, userIdColumn, address, timeColumn);
 
         tableView.setItems(setBookings());
     }

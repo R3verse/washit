@@ -47,7 +47,7 @@ public class EditBookingView
         ComboBox<Booking> activitiesCBox = new ComboBox<>();
         //activitiesCBox.setValue();
 
-        //startTimeCBox.setValue(booking.getStartTime().getTime());
+        //time.setValue(booking.getStartTime().getTime());
 
         //endTimeCBox.setValue(booking.getEndTime().getTime());
         DatePicker datePicker = new DatePicker();
@@ -185,7 +185,7 @@ public class EditBookingView
                 booking.setUserID(userCBox.getValue().getID());
               //  booking.setActivityID(activitiesCBox.getValue().getId());
                 booking.setDate(date);
-                //  booking.setStartTime(startTimeCBox.getValue());
+                //  booking.setStartTime(time.getValue());
                 //  booking.setEndTime(endTimeCBox.getValue());
                 int participants = Integer.parseInt(numUsersCbox.getValue().split(" ")[0]);
                 //  booking.setParticipants(participants);

@@ -1,11 +1,27 @@
 package Models;
 
 import java.sql.Date;
+import java.sql.Time;
 
 public class Booking{
     private int ID;
     private int userID;
     private String userName;
+    private Time time;
+
+    public Booking(int ID, int userID, String status, String description, Date date, String address, String userName, Time time) {
+
+        this.ID = ID;
+        this.userID = userID;
+        this.status = status;
+        this.description = description;
+        this.date = date;
+        this.address = address;
+        this.userName = userName;
+        this.time = time;
+    }
+
+    public Time getTime(){return time;}
 
     public String getDescription() {
         return description;
@@ -36,30 +52,33 @@ public class Booking{
     private String address;
     private Date date;
 
-    public Booking(int ID, Date date){}
-    public Booking(int ID, int userID, String userName, Date date)
+    public Booking(int ID, String status, String description, Date date, String address){}
+    public Booking(int ID, int userID, String userName, Date date, Time time)
     {
         this.ID = ID;
         this.userID = userID;
         this.userName = userName;
         this.date = date;
+        this.time = time;
     }
 
-    public Booking(int ID, String status, String description, Date date, String address)
+    public Booking(int ID, Date date, Time time)
     {
         this.ID = ID;
         this.status = status;
         this.description = description;
         this.date = date;
         this.address = address;
+        this.userName = userName;
+        this.time = time;
 
     }
 
     //Overload
-    public Booking(int ID, String userName, Date date)
+    public Booking(int id, int ID, String status, String description, Date date, String address)
     {
         this.ID = ID;
-        this.userName = userName;
+        this.userName = this.userName;
         this.date = date;
     }
 

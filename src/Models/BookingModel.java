@@ -51,7 +51,7 @@ public class BookingModel {
         {
 
             statement = con.createStatement();
-            statement.executeQuery("SELECT b.ID, b.status, b.description, b.Date, b.address  FROM booking b " +
+            statement.executeQuery("SELECT b.*, usr.firstName, usr.lastName FROM booking b " +
                     "INNER JOIN users usr ON b.ID = usr.ID"
             );
             rs = statement.getResultSet();
@@ -59,17 +59,23 @@ public class BookingModel {
                 int ID = rs.getInt("ID");
                 String status = rs.getString("status");
                 String description = rs.getString("description");
-               // String userName = rs.getString("firstName");
-                //userName += " " + rs.getString("lastName");
-
                 Date date = rs.getDate("Date");
                 String address = rs.getString("address");
+                Time time = rs.getTime("time");
+                String userName = rs.getString("firstName");
+                userName += " " + rs.getString("lastName");
+                int userId = rs.getInt("userId");
+
 
                 listReturn.add(new Booking(ID,
+                        userId,
                         status,
                         description,
                         date,
-                        address
+                        address,
+                        userName,
+                        time
+
                 ));
             }
         }
@@ -104,6 +110,9 @@ public class BookingModel {
             String description = booking.getDescription();
             Date date = booking.getDate();
             String address = booking.getAddress();
+            Time time = booking.getTime();
+            String userName = booking.getUserName();
+
             int id = booking.getID();
             String query =
                     "UPDATE `booking` " +
@@ -113,6 +122,9 @@ public class BookingModel {
                             "`description`=?," +
                             "`Date`=?," +
                             "`address`=?," +
+                            "`time`=?," +
+                            "`firstName`=?," +
+                            "`lastName`=?," +
                             "WHERE id = ?";
             PreparedStatement stmt = con.prepareStatement(query);
             stmt.setInt(1,userId);
@@ -120,6 +132,8 @@ public class BookingModel {
             stmt.setString(3,description);
             stmt.setDate(4,date);
             stmt.setString(5,address);
+            stmt.setTime(6,time);
+            stmt.setString(7,userName);
 
             System.out.println(id + " " + userId);
             stmt.execute();
@@ -139,9 +153,10 @@ public class BookingModel {
             String description = bookInsert.getDescription();
             Date date = bookInsert.getDate();
             String address = bookInsert.getAddress();
+            String userName = bookInsert.getUserName();
             String query =
-                    "INSERT INTO `booking`(`ID`, `status`, `description`, `Date`, `address`) " +
-                            "VALUES (?,?,?,?,?)";
+                    "INSERT INTO `booking`(`ID`, `status`, `description`, `Date`, `address`, `userName`) " +
+                            "VALUES (?,?,?,?,?,?)";
             PreparedStatement stmt = con.prepareStatement(query);
             stmt.setInt(1,userId);
             stmt.setString(2,status);
