@@ -59,7 +59,7 @@ public class Template extends Application
 
         Label loggedInAsLabel = new Label();
 
-//        showWelcomeMessage(loggedInAsLabel); // showing if Employee/Admin/User as label
+        showWelcomeMessage(loggedInAsLabel); // showing if Employee/Admin/User as label
 
         //Buttons & coloring & Size
         Button createUserbtn = new Button("Create User");
@@ -133,23 +133,24 @@ public class Template extends Application
 
         return root;
     }
-//
-//    private void showWelcomeMessage(Label loggedInAsLabel) {
-//        if(SessionModel.getInstance().getLoggedInUser().getRole() == UserRoleEnum.ADMIN)
-//        {
-//            loggedInAsLabel.setText("Welcome Administrator");
-//
-//        }
-//        else if(SessionModel.getInstance().getLoggedInUser().getRole() == UserRoleEnum.Driver)
-//        {
-//            loggedInAsLabel.setText("Welcome "+SessionModel.getInstance().getLoggedInUser().getRole());
-//
-//        }
-//        else if(SessionModel.getInstance().getLoggedInUser().getRole() == UserRoleEnum.USER)
-//        {
-//            loggedInAsLabel.setText("Welcome "+SessionModel.getInstance().getLoggedInUser().getRole());
-//        }else{
-//            // Not logged in as a valid user/customer/admin
-//        }
-//    }
+
+    private void showWelcomeMessage(Label loggedInAsLabel)
+    {
+        if(SessionModel.getInstance().getLoggedInUser().getRole() == UserRoleEnum.ADMIN)
+        {
+            loggedInAsLabel.setText("Welcome Administrator");
+
+        }
+       else if(SessionModel.getInstance().getLoggedInUser().getRole() == UserRoleEnum.Driver)
+        {
+           loggedInAsLabel.setText("Welcome "+SessionModel.getInstance().getLoggedInUser().getRole());
+
+        }
+        else if(SessionModel.getInstance().getLoggedInUser().getRole() == UserRoleEnum.USER)
+        {
+            loggedInAsLabel.setText("Welcome "+SessionModel.getInstance().getLoggedInUser().getRole());
+        }else{
+            // Not logged in as a valid user/customer/admin
+        }
+    }
 }
