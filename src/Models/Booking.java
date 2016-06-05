@@ -51,6 +51,11 @@ public class Booking{
         this.description = description;
     }
 
+    public void setTime(Time time){
+        this.time = time ;
+    }
+
+
     public String getStatus() {
         return status;
     }

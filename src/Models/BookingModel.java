@@ -104,7 +104,7 @@ public class BookingModel {
     public void updateBooking(Booking booking)
     {
         try {
-
+            int ID = booking.getID() ;
             int userId = booking.getUserID();
             String status = booking.getStatus();
             String description = booking.getDescription();
@@ -115,26 +115,22 @@ public class BookingModel {
 
             int id = booking.getID();
             String query =
-                    "UPDATE `booking` " +
-                            "SET " +
-                            "`ID`=?," +
-                            "`userId`=?," +
-                            "`status`=?," +
-                            "`description`=?," +
-                            "`Date`=?," +
-                            "`address`=?," +
-                            "`userName`=?," +
-                            "`time`=?," +
-                            "WHERE id = ?";
+                    "UPDATE booking" +
+                            " set userId = ? ," +
+                            " status = ?," +
+                            " description = ?," +
+                            " Date = ?," +
+                            " address = ?," +
+                            " time = ? " +
+                            "where ID = ?";
             PreparedStatement stmt = con.prepareStatement(query);
-            stmt.setInt(1,id);
-            stmt.setInt(2,userId);
-            stmt.setString(3,status);
-            stmt.setString(4,description);
-            stmt.setDate(5,date);
-            stmt.setString(6,address);
-            stmt.setString(7,userName);
-            stmt.setTime(8,time);
+            stmt.setInt(1,userId);
+            stmt.setString(2,status);
+            stmt.setString(3,description);
+            stmt.setDate(4,date);
+            stmt.setString(5,address);
+            stmt.setTime(6,time);
+            stmt.setInt(7,ID);
 
 
             System.out.println(id + " " + userId);
@@ -160,17 +156,15 @@ public class BookingModel {
             Time time = bookInsert.getTime();
 
             String query =
-                    "INSERT INTO `booking`(`userId`, `ID`, `status`, `description`, `Date`, `address`, `userName`, `time`) " +
-                            "VALUES (?,?,?,?,?,?,?,?)";
+                    "INSERT INTO `booking`(`userId`, `status`, `description`, `Date`, `address`,  `time`) " +
+                            "VALUES (?,?,?,?,?,?)";
             PreparedStatement stmt = con.prepareStatement(query);
-            stmt.setInt(1,id);
-            stmt.setInt(2,userId);
-            stmt.setString(3,status);
-            stmt.setString(4,description);
-            stmt.setDate(5,date);
-            stmt.setString(6,address);
-            stmt.setString(7,userName);
-            stmt.setTime(8,time);
+            stmt.setInt(1,userId);
+            stmt.setString(2,status);
+            stmt.setString(3,description);
+            stmt.setDate(4,date);
+            stmt.setString(5,address);
+            stmt.setTime(6,time);
             stmt.execute();
             System.out.println("inserted booking into table");
         }

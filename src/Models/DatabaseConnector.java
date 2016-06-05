@@ -29,6 +29,7 @@ public class DatabaseConnector
             if(instance == null) {
 
                 instance = new DatabaseConnector("jdbc:mysql://localhost:3306/washa?useSSL=true", "root", "lol123");
+                // please change this back again
 
             }
             return instance;

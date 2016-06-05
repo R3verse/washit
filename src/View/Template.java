@@ -82,15 +82,12 @@ public class Template extends Application
         createUserbtn.setOnAction(event ->  {
             //root.setCenter(activityView.innerRootBorderPaneActivities()
             System.out.println("Opening create user... ");
-        //SceneSwitchHelper.setScene(ucv.userCreateView(null), 420, 570, "Create User");
-            Stage stage = new Stage();
-            stage.setScene(new Scene(new CreateUserView().userCreateView(stage),450,600));
-            stage.showAndWait();
+        SceneSwitchHelper.setScene(ucv.userCreateView(null), 420, 570, "Create User");
+
         });
 
         btnLogout.setOnAction(logoutEvent -> {
             SceneSwitchHelper.setScene(new LoginView().getBorderPane(), 420, 340, "Login");
-
         });
 
         BookingView bookingView = new BookingView();

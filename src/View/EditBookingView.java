@@ -6,9 +6,7 @@ import Models.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -18,6 +16,7 @@ import javafx.stage.Stage;
 
 import java.sql.Date;
 import java.sql.Time;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -70,7 +69,7 @@ public class EditBookingView
             }
 
         }
-        ObservableList fukoff = FXCollections.observableArrayList(new ArrayList<Time>());
+        ObservableList fukoff = FXCollections.observableArrayList(new ArrayList<Time>()); // wow this is great ;)
 
         ObservableList fukinn = FXCollections.observableArrayList(new ArrayList<Time>());
 
@@ -98,14 +97,14 @@ public class EditBookingView
 
         /*************************************TEST**************************/
         //Buttons
-        Button btnEditBooking = new Button("Edit Activity");
+        Button btnEditBooking = new Button("Edit Booking");
 
         //Setting up the GridPane && Customization
         GridPane gridPane = new GridPane();
         gridPane.setPadding(new Insets(20,5,5,60));
         gridPane.setHgap(40);
         gridPane.setVgap(3);
-        gridPane.setStyle("-fx-background-color: linear-gradient(white 80%, #dda200 100%)");
+        gridPane.setStyle("-fx-background-color: linear-gradient(white 25%, darkcyan 100%)");
 
         //Add image
         ImageView imageView = new ImageView();
@@ -130,24 +129,52 @@ public class EditBookingView
         numUsersCbox.setPromptText("Status");
         numUsersCbox.setMaxWidth(195);
         numUsersCbox.getItems().addAll(CreateBookingView.status());
+        String status = booking.getStatus();
+        int i = 0 ;
+        for(String s :  CreateBookingView.status()){
+            if(s == status)
+                break ;
+            else
+                i++ ;
+        }
+        numUsersCbox.getSelectionModel().select(status);
         gridPane.add(numUsersCbox, 0, 2);
 
         activitiesCBox.setPromptText("Select Activity");
         activitiesCBox.setMaxWidth(140);
-        gridPane.add(activitiesCBox, 1, 2);
+        //gridPane.add(activitiesCBox, 1, 2); // removing activities box
         //Using the list from DB and uses the toString method for displaying the object as fname + lname
         //activitiesCBox.getItems().addAll(String.valueOf(ActivityModel.getInstance().getActivities()));
 
         startTimeCBox.setPromptText("Activity Starts ");
         startTimeCBox.setMinWidth(140);
-        gridPane.add(startTimeCBox, 1, 8);
+//        gridPane.add(startTimeCBox, 1, 8); // removing activity time
 
         endTimeCBox.setPromptText("Activity Ends   ");
         endTimeCBox.setMinWidth(140);
-        gridPane.add(endTimeCBox, 1, 9);
+//        gridPane.add(endTimeCBox, 1, 9); // removing activity end time
 
         datePicker.setPromptText("Select Date ");
-        gridPane.add(datePicker, 0,8);
+        gridPane.add(datePicker, 0,3);
+
+        /*Adding time text field*/
+        TextField time = new TextField() ;
+        time.setText(booking.getTime().toString());
+        gridPane.add(time, 0, 4);
+
+        /*Adding address field*/
+        Label laddress = new Label("Address : ") ;
+        gridPane.add(laddress,1,1);
+        TextField address = new TextField() ;
+        address.setText(booking.getAddress());
+        gridPane.add(address, 1, 2);
+
+        /*Adding description field*/
+        Label ldescription = new Label("Description : ") ;
+        gridPane.add(ldescription,1,3);
+        TextField description = new TextField() ;
+        description.setText(booking.getDescription());
+        gridPane.add(description, 1, 4);
 
         gridPane.add(btnEditBooking, 1, 11);
 
@@ -178,15 +205,22 @@ public class EditBookingView
 
                 date = new Date(utilDate.getTime());
 
-                date = new java.sql.Date(utilDate.getTime());
+                date = new Date(utilDate.getTime());
 
+                DateFormat formatter = new SimpleDateFormat("HH:mm");
+                Time timeparse = new Time(formatter.parse(time.getText()).getTime());
 
                 booking.setUserID(userCBox.getValue().getID());
-              //  booking.setActivityID(activitiesCBox.getValue().getId());
+                booking.setAddress(address.getText());
+                booking.setDescription(description.getText());
+                booking.setStatus(numUsersCbox.getSelectionModel().getSelectedItem());
+
+                booking.setTime(timeparse);
                 booking.setDate(date);
+              //  booking.setActivityID(activitiesCBox.getValue().getId());
                 //  booking.setStartTime(time.getValue());
                 //  booking.setEndTime(endTimeCBox.getValue());
-                int participants = Integer.parseInt(numUsersCbox.getValue().split(" ")[0]);
+                //int participants = Integer.parseInt(numUsersCbox.getValue().split(" ")[0]);
                 //  booking.setParticipants(status);
                 BookingEditController.tryUpdate(booking);
                 stage.close();
@@ -198,7 +232,7 @@ public class EditBookingView
                 System.err.println("Failed to parse date: " + e1);
                 BookingCreateController.setBookingAlert("Error", "You must fill out the date field");
             }
-            convertMiliToHours();
+            //convertMiliToHours();
         });
 
         return gridPane;

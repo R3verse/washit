@@ -90,12 +90,7 @@ public class ActivityView
 
         //ContextMenu as popup when right clicking a column on the ActivityTableView
         ContextMenu cMenu = new ContextMenu();
-        cMenu.setStyle("-fx-background-color: #67db6e, \n" +
-                "        linear-gradient(#7ebcea, #67db6e)," +
-                "        linear-gradient(#67db6e, #7ebcea);" +
-                "        -fx-font-weight: bold;" +
-                "        -fx-background-radius: 6;" +
-                "        -fx-text-fill: white");
+        cMenu.setStyle("-fx-background-color: linear-gradient(white 25%, darkcyan 100%)");
         MenuItem editItem = new MenuItem("Edit");
         MenuItem deleteItem = new MenuItem("Delete");
         cMenu.getItems().addAll(editItem, deleteItem);

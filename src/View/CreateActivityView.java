@@ -48,7 +48,7 @@ public class CreateActivityView
         try{
             System.out.println(Booking.getDate().toString());
             java.util.Date utilDate = new SimpleDateFormat("yyyy-MM-dd").parse(datePicker.getValue().toString());
-            dateField = new java.sql.Date(utilDate.getTime());
+            dateField = new Date(utilDate.getTime());
 
             Booking.setDate(dateField);
 

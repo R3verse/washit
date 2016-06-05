@@ -4,10 +4,7 @@ import Controllers.BookingCreateController;
 import Models.*;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -16,6 +13,7 @@ import javafx.stage.Stage;
 
 import java.sql.Date;
 import java.sql.Time;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -55,7 +53,7 @@ public class CreateBookingView
         stage.initModality(Modality.APPLICATION_MODAL);
         GridPane gridPane = new GridPane();
         //Customization Grid
-        gridPane.setStyle("-fx-background-color: linear-gradient(white 80%, #dda200 100%)");
+        gridPane.setStyle("-fx-background-color: linear-gradient(white 25%, darkcyan 100%)");
         gridPane.setPadding(new Insets(20,0,0,60));
         gridPane.setHgap(40);
         gridPane.setVgap(3);
@@ -79,12 +77,12 @@ public class CreateBookingView
             }
         });
 
-        //Setting the TextField
-        searchField.setPromptText("Search Customer");
-        if (SessionModel.getInstance().getLoggedInUser().getRole() != UserRoleEnum.USER)
-        {
-            gridPane.add(searchField, 0,1);
-        }
+        //removing the search field
+//        searchField.setPromptText("Search Customer");
+//        if (SessionModel.getInstance().getLoggedInUser().getRole() != UserRoleEnum.USER)
+//        {
+//            gridPane.add(searchField, 0,1);
+//        }
 
         userCBox = new ComboBox<>();
         userCBox.setValue(SessionModel.getInstance().getLoggedInUser());
@@ -93,50 +91,71 @@ public class CreateBookingView
         userCBox.setDisable(SessionModel.getInstance().getLoggedInUser().getRole() == UserRoleEnum.USER);
 
         userCBox.setEditable(false);
-        gridPane.add(userCBox, 0, 2);
+        gridPane.add(userCBox, 0, 1);
         //Using the list from DB and uses the toString method for displaying the object as fname + lname
         userCBox.getItems().addAll(UserModel.getInstance().getUserList());
 
-        description.setText(BookingView.getInstance().getSearchAddress().getText());
-        description.setMaxWidth(195);
-        gridPane.add(description, 1, 1);
+        /*Adding status combo box*/
+        ComboBox<String> statusCbox = new ComboBox<>();
+        statusCbox.setPromptText("Status");
+        statusCbox.setMaxWidth(195);
+        statusCbox.getItems().addAll(CreateBookingView.status());
+        gridPane.add(statusCbox, 0, 2);
 
-
-        //Adding the acitvityBox
-        activitiesCBox = new ComboBox<>();
-        activitiesCBox.setPromptText("Select Activity");
-        activitiesCBox.setMaxWidth(140);
-        gridPane.add(activitiesCBox, 1, 2);
-        //Using the list from DB and uses the toString method for displaying the object as fname + lname
-        activitiesCBox.getItems().addAll(ActivityModel.getInstance().getActivities());
+// removing activity boxes
+//        //Adding the acitvityBox
+//        activitiesCBox = new ComboBox<>();
+//        activitiesCBox.setPromptText("Select Activity");
+//        activitiesCBox.setMaxWidth(140);
+//        gridPane.add(activitiesCBox, 1, 2);
+//        //Using the list from DB and uses the toString method for displaying the object as fname + lname
+//        activitiesCBox.getItems().addAll(ActivityModel.getInstance().getActivities());
 
         //Adding the InfoButton beside the activityBox
         gridPane.add(infoImageForActivities, 2, 2);
 
-        time = new ComboBox<>();
-        time.setPromptText("Activity Starts ");
-        time.setMinWidth(140);
-        gridPane.add(time, 1, 5);
-
-        endTimeCBox = new ComboBox<>();
-        endTimeCBox.setPromptText("Activity Ends   ");
-        endTimeCBox.setMinWidth(140);
-        gridPane.add(endTimeCBox, 1, 6);
+        // removing activity time boxes as well
+//        time = new ComboBox<>();
+//        time.setPromptText("Activity Starts ");
+//        time.setMinWidth(140);
+//        gridPane.add(time, 1, 5);
+//
+//        endTimeCBox = new ComboBox<>();
+//        endTimeCBox.setPromptText("Activity Ends   ");
+//        endTimeCBox.setMinWidth(140);
+//        gridPane.add(endTimeCBox, 1, 6);
 
         datePicker = new DatePicker();
         datePicker.setPromptText("Select Date ");
-        gridPane.add(datePicker, 0, 5);
+        gridPane.add(datePicker, 0, 3);
+
+        /*Adding time text field*/
+        TextField timeField = new TextField() ;
+        timeField.setPromptText("Time");
+        gridPane.add(timeField, 0, 4);
+
+        /*Adding address field*/
+        Label laddress = new Label("Address : ") ;
+        gridPane.add(laddress,1,1);
+        TextField address = new TextField() ;
+        gridPane.add(address, 1, 2);
+
+        /*Adding description field*/
+        Label ldescription = new Label("Description : ") ;
+        gridPane.add(ldescription,1,3);
+        TextField description = new TextField() ;
+        gridPane.add(description, 1, 4);
 
         Button bookBtn = new Button("Book Activity");
         gridPane.add(bookBtn, 1, 12);
 
-        //Hack to avoid toString...
-        activitiesCBox.valueProperty().addListener((observable, oldValue, newValue) ->
-        {
-            time.getItems().clear();
-            Time starTime = newValue.getTime();
-            time.getItems().addAll(starTime);
-        });
+//        //Hack to avoid toString...
+//        activitiesCBox.valueProperty().addListener((observable, oldValue, newValue) ->
+//        {
+//            time.getItems().clear();
+//            Time starTime = newValue.getTime();
+//            time.getItems().addAll(starTime);
+//        });
 
         searchField.setOnKeyReleased(e-> BookingCreateController.search(userCBox,searchField));
 
@@ -152,12 +171,17 @@ public class CreateBookingView
 
                 date = new Date(utilDate.getTime());
 
-                date = new java.sql.Date(utilDate.getTime());
+                date = new Date(utilDate.getTime());
 
+                DateFormat formatter = new SimpleDateFormat("HH:mm");
+                Time timeparse = new Time(formatter.parse(timeField.getText()).getTime());
 
-                convertMiliToHours();
-               // int participant = Integer.parseInt(numUsersCbox.getValue().split(" ")[0]);
-                Booking book = new Booking(selectedUser.getID(), date, time.getValue());
+                Booking book = new Booking(selectedUser.getID(), date, timeparse);
+
+                book.setStatus(statusCbox.getSelectionModel().getSelectedItem());
+                book.setDescription(description.getText());
+                book.setAddress(address.getText());
+                book.setUserID(selectedUser.getID());
 
                 BookingCreateController.tryInsert(book);
                 stage.close();
@@ -167,7 +191,7 @@ public class CreateBookingView
                 System.err.println("Could not parse date: " + e1);
                 BookingCreateController.setBookingAlert("Error","Could not parse date!");
             }
-            convertMiliToHours();
+            //convertMiliToHours();
             System.out.println(selectedUser.getID());
 
         });
