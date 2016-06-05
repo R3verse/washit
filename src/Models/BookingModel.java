@@ -52,7 +52,7 @@ public class BookingModel {
 
             statement = con.createStatement();
             statement.executeQuery("SELECT b.*, usr.firstName, usr.lastName FROM booking b " +
-                    "INNER JOIN users usr ON b.ID = usr.ID"
+                    "INNER JOIN users usr ON b.userId = usr.ID"
             );
             rs = statement.getResultSet();
             while(rs.next()){
